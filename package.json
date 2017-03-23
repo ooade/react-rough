@@ -1,0 +1,64 @@
+{
+  "name": "react-rough",
+  "version": "0.1.0",
+  "description": "Blah blah blah..............",
+  "main": "dist/react-rough.js",
+  "module": "dist/react-rough.es.js",
+  "jsnext:main": "dist/react-rough.es.js",
+  "umd:main": "dist/react-rough.umd.js",
+  "scripts": {
+    "prebuild": "eslint src test",
+    "build": "npm-run-all rollup minify:* -s size",
+    "rollup": "rollup -c",
+    "watch": "rollup -c -w",
+    "epretest": "npm run build",
+    "minify:cjs": "uglifyjs $npm_package_main -cm -o $npm_package_main -p relative --in-source-map ${npm_package_main}.map --source-map ${npm_package_main}.map",
+    "minify:umd": "uglifyjs $npm_package_umd_main -cm toplevel -o $npm_package_umd_main -p relative --in-source-map ${npm_package_umd_main}.map --source-map ${npm_package_umd_main}.map",
+    "size": "echo \"Gzipped Size: $(strip-json-comments --no-whitespace $npm_package_main | gzip-size)\"",
+    "test": "mocha --watch",
+    "prepublish": "npm test"
+  },
+  "repository": "ooade/react-rough",
+  "keywords": [
+    "es6",
+    "modules",
+    "rollup",
+    "browser",
+    "react",
+    "rough",
+    "react-rough"
+  ],
+  "author": "Ademola Adegbuyi <ooade96@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ooade/react-rough/issues"
+  },
+  "files": [
+    "src",
+    "dist"
+  ],
+  "homepage": "https://github.com/ooade/react-rough#readme",
+  "devDependencies": {
+    "babel-eslint": "^7.1.1",
+    "babel-plugin-external-helpers": "^6.18.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.23.0",
+    "babel-preset-stage-0": "^6.22.0",
+    "babel-register": "^6.18.0",
+    "babelrc-rollup": "^3.0.0",
+    "chai": "^3.5.0",
+    "eslint": "^3.12.2",
+    "gzip-size-cli": "^2.0.0",
+    "mocha": "^3.2.0",
+    "npm-run-all": "^4.0.2",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "rollup": "^0.41.4",
+    "rollup-plugin-babel": "^2.7.1",
+    "strip-json-comments-cli": "^1.0.1",
+    "uglify-js": "^2.7.5"
+  },
+  "peerDependencies": {
+    "react": "^15.4.2"
+  }
+}
