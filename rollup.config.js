@@ -1,5 +1,4 @@
 import babel from 'rollup-plugin-babel';
-import babelrc from 'babelrc-rollup';
 
 let pkg = require('./package.json');
 
@@ -7,8 +6,14 @@ export default {
   entry: 'src/index.js',
   useStrict: false,
   sourceMap: true,
+  external: [
+    'react'
+  ],
   plugins: [
-    babel(babelrc())
+    babel({
+      exclude: 'node_modules/**',
+      plugins: ['external-helpers']
+    })
   ],
   targets: [
     {
@@ -17,12 +22,12 @@ export default {
     },
     {
       dest: pkg.module,
-      format: 'es',
+      format: 'es'
     },
     {
       dest: pkg['umd:main'],
       format: 'umd',
-      moduleName: 'fonsole'
+      moduleName: 'ReactRough'
     }
   ]
 };

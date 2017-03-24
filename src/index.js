@@ -7,10 +7,28 @@
  * - options <Object => data, ...>
  */
 
+/* @flow */
+
 import React from 'react';
 import RoughCanvas from './rough';
 
+type Props = {
+  name: string,
+  width: number,
+  height: number,
+  onRender: () => void,
+  options: {
+    data: Array<Array<number>> | string
+  }
+}
+
 class ReactRough extends React.Component {
+  props: Props;
+
+  name: string;
+
+  canvas: HTMLCanvasElement;
+
   _createCanvas() {
     this.canvas = document.createElement('canvas');
     document.body.appendChild(this.canvas);
@@ -24,23 +42,25 @@ class ReactRough extends React.Component {
       options: { data, ...rest }
     } = this.props;
 
-    this.rough = new RoughCanvas(this.canvas, width, height);
+    let rough = new RoughCanvas(this.canvas, width, height);
 
     // Iterate over props and apply each prop to our element
-    Object.keys(rest).forEach(prop => this.rough[prop] = rest[prop]);
+    Object.keys(rest).forEach(prop => rough[prop] = rest[prop]);
 
     let shape;
 
     // Apply our supplied data to rough
     // path => String, curve and polygon => Array
     if (this.name.match(/curve|path|polygon/)) {
-      shape = this.rough[this.name](data);
+      shape = rough[this.name](data);
     } else {
-      shape = this.rough[this.name](...data);
+      shape = rough[this.name](...data);
     }
 
     // Apply our Hook
-    onRender && onRender(shape);
+    if (typeof onRender !== 'undefined') {
+      onRender(shape);
+    }
   }
 
   _deleteCanvas() {
