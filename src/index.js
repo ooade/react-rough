@@ -16,64 +16,85 @@ type Props = {
   name: string,
   width: number,
   height: number,
+  'data-rough-id': string,
   onRender: () => void,
   options: {
-    data: Array<Array<number>> | string
+    id: string,
+    data: string | Array<number> | Array<Array<number>>
   }
 }
 
-class ReactRough extends React.Component {
+class RoughComponent extends React.Component {
   props: Props;
 
   name: string;
 
   canvas: HTMLCanvasElement;
 
-  _createCanvas() {
-    this.canvas = document.createElement('canvas');
-    document.body.appendChild(this.canvas);
+  _prepareRough() {
+  let canvas, rough;
+
+  // Transverse through child components
+  if (this.props.children) {
+    // Is Canvas Created?
+    // Yea, fetch the canvas (0_0)
+    canvas = [
+      ...document.querySelectorAll('[data-rough-id]')
+    ].find(rough => rough.dataset.roughId === this.props['data-rough-id']);
+
+    if (canvas === undefined) {
+      // Create one ;)
+      canvas = document.createElement('canvas');
+      canvas.dataset.roughId = this.props['data-rough-id'];
+      document.body.appendChild(canvas);
+
+      // Create RoughCanvas
+      rough = new RoughCanvas(canvas, this.props.width, this.props.height);
+    } else { return; }
+
+    React.Children.toArray(this.props.children).forEach(child => {
+      // Create instance of children
+      let cc = new child.type();
+      this._updateCanvas({ name: cc.name, rough, ...child.props })
+    });
+
+  } else {
+    // No Child, Create a canvas without an id :p
+    canvas = document.createElement('canvas');
+    document.body.appendChild(canvas);
+
+    rough = new RoughCanvas(canvas, this.props.width, this.props.height);
+
+    this._updateCanvas({ name: this.name, rough, ...this.props });
+  }
+}
+
+_updateCanvas({ name, rough, onRender, options: { data, ...rest }}) {
+  let shape;
+
+  // Apply our supplied data to rough
+  // path => String, curve and polygon => Array
+  if (name.match(/curve|path|polygon/)) {
+    shape = rough[name](data);
+  } else {
+    shape = rough[name](...data);
   }
 
-  _updateCanvas() {
-    const {
-      width,
-      height,
-      onRender,
-      options: { data, ...rest }
-    } = this.props;
+  // Iterate over props and apply each prop to our element
+  Object.keys(rest).forEach(prop => shape[prop] = rest[prop]);
 
-    let rough = new RoughCanvas(this.canvas, width, height);
-
-    // Iterate over props and apply each prop to our element
-    Object.keys(rest).forEach(prop => rough[prop] = rest[prop]);
-
-    let shape;
-
-    // Apply our supplied data to rough
-    // path => String, curve and polygon => Array
-    if (this.name.match(/curve|path|polygon/)) {
-      shape = rough[this.name](data);
-    } else {
-      shape = rough[this.name](...data);
-    }
-
-    // Apply our Hook
-    if (typeof onRender !== 'undefined') {
-      onRender(shape);
-    }
+  // Apply our Hook
+  if (typeof onRender !== 'undefined') {
+    onRender(shape);
   }
+}
 
   _deleteCanvas() {
     document.body.removeChild(this.canvas);
   }
 
   componentDidMount() {
-    this._createCanvas();
-    this._updateCanvas();
-  }
-
-  componentDidUpdate() {
-    this._updateCanvas();
+    this._prepareRough();
   }
 
   componentWillUnmount() {
@@ -85,35 +106,39 @@ class ReactRough extends React.Component {
   }
 }
 
-class Arc extends ReactRough {
+class ReactRough extends RoughComponent {
+  name = 'react-rough';
+}
+
+class Arc extends RoughComponent {
   name = 'arc';
 }
 
-class Circle extends ReactRough {
+class Circle extends RoughComponent {
   name = 'circle';
 }
 
-class Curve extends ReactRough {
+class Curve extends RoughComponent {
   name = 'curve';
 }
 
-class Ellipse extends ReactRough {
+class Ellipse extends RoughComponent {
   name = 'ellipse';
 }
 
-class Line extends ReactRough {
+class Line extends RoughComponent {
   name = 'line';
 }
 
-class Path extends ReactRough {
+class Path extends RoughComponent {
   name = 'path';
 }
 
-class Polygon extends ReactRough {
+class Polygon extends RoughComponent {
   name = 'polygon';
 }
 
-class Rectangle extends ReactRough {
+class Rectangle extends RoughComponent {
   name = 'rectangle';
 }
 
