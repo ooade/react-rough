@@ -1,801 +1,331 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders Arc correctly 1`] = `null`;
+exports[`renders Arc correctly 1`] = `
+initialize {
+  "0": Object {
+    "attribs": Object {},
+    "children": Array [
+      Object {
+        "attribs": Object {},
+        "children": Array [],
+        "name": "canvas",
+        "next": null,
+        "parent": null,
+        "prev": null,
+        "root": [Circular],
+        "type": "tag",
+      },
+    ],
+    "name": "root",
+    "next": null,
+    "parent": null,
+    "prev": null,
+    "type": "root",
+  },
+  "_root": [Circular],
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "normalizeWhitespace": false,
+    "withDomLvl1": true,
+    "xmlMode": false,
+  },
+}
+`;
 
 exports[`renders Circle correctly 1`] = `
-ShallowWrapper {
-  "complexSelector": ComplexSelector {
-    "buildPredicate": [Function],
-    "childrenOfNode": [Function],
-    "findWhereUnwrapped": [Function],
+initialize {
+  "0": Object {
+    "attribs": Object {},
+    "children": Array [
+      Object {
+        "attribs": Object {},
+        "children": Array [],
+        "name": "canvas",
+        "next": null,
+        "parent": null,
+        "prev": null,
+        "root": [Circular],
+        "type": "tag",
+      },
+    ],
+    "name": "root",
+    "next": null,
+    "parent": null,
+    "prev": null,
+    "type": "root",
   },
+  "_root": [Circular],
   "length": 1,
-  "node": null,
-  "nodes": Array [
-    null,
-  ],
-  "options": Object {},
-  "renderer": ReactShallowRenderer {
-    "_instance": ShallowComponentWrapper {
-      "_calledComponentWillUnmount": false,
-      "_compositeType": 0,
-      "_context": Object {},
-      "_currentElement": <Circle
-        height={120}
-        options={
-                Object {
-                        "data": Array [
-                          200,
-                          100,
-                          200,
-                          180,
-                          -2.0943951023931957,
-                          -1.5707963267948966,
-                          true,
-                        ],
-                        "fill": "#3ef6ad",
-                      }
-        }
-        width={120}
-/>,
-      "_debugID": 3,
-      "_hostContainerInfo": null,
-      "_hostParent": null,
-      "_instance": Circle {
-        "_reactInternalInstance": [Circular],
-        "context": Object {},
-        "name": "circle",
-        "props": Object {
-          "height": 120,
-          "options": Object {
-            "data": Array [
-              200,
-              100,
-              200,
-              180,
-              -2.0943951023931957,
-              -1.5707963267948966,
-              true,
-            ],
-            "fill": "#3ef6ad",
-          },
-          "width": 120,
-        },
-        "refs": Object {},
-        "state": null,
-        "updater": Object {
-          "enqueueCallback": [Function],
-          "enqueueCallbackInternal": [Function],
-          "enqueueElementInternal": [Function],
-          "enqueueForceUpdate": [Function],
-          "enqueueReplaceState": [Function],
-          "enqueueSetState": [Function],
-          "isMounted": [Function],
-          "validateCallback": [Function],
-        },
-      },
-      "_mountOrder": 2,
-      "_pendingCallbacks": null,
-      "_pendingElement": null,
-      "_pendingForceUpdate": false,
-      "_pendingReplaceState": false,
-      "_pendingStateQueue": null,
-      "_renderedComponent": NoopInternalComponent {
-        "_currentElement": null,
-        "_debugID": 4,
-        "_renderedOutput": null,
-      },
-      "_renderedNodeType": 2,
-      "_rootNodeID": 0,
-      "_topLevelWrapper": null,
-      "_updateBatchNumber": null,
-      "_warnedAboutRefsInRender": false,
-    },
-    "getRenderOutput": [Function],
-    "render": [Function],
+  "options": Object {
+    "decodeEntities": true,
+    "normalizeWhitespace": false,
+    "withDomLvl1": true,
+    "xmlMode": false,
   },
-  "root": [Circular],
-  "unrendered": <Circle
-    height={120}
-    options={
-        Object {
-            "data": Array [
-              200,
-              100,
-              200,
-              180,
-              -2.0943951023931957,
-              -1.5707963267948966,
-              true,
-            ],
-            "fill": "#3ef6ad",
-          }
-    }
-    width={120}
-/>,
 }
 `;
 
 exports[`renders Curve correctly 1`] = `
-ShallowWrapper {
-  "complexSelector": ComplexSelector {
-    "buildPredicate": [Function],
-    "childrenOfNode": [Function],
-    "findWhereUnwrapped": [Function],
+initialize {
+  "0": Object {
+    "attribs": Object {},
+    "children": Array [
+      Object {
+        "attribs": Object {},
+        "children": Array [],
+        "name": "canvas",
+        "next": null,
+        "parent": null,
+        "prev": null,
+        "root": [Circular],
+        "type": "tag",
+      },
+    ],
+    "name": "root",
+    "next": null,
+    "parent": null,
+    "prev": null,
+    "type": "root",
   },
+  "_root": [Circular],
   "length": 1,
-  "node": null,
-  "nodes": Array [
-    null,
-  ],
-  "options": Object {},
-  "renderer": ReactShallowRenderer {
-    "_instance": ShallowComponentWrapper {
-      "_calledComponentWillUnmount": false,
-      "_compositeType": 0,
-      "_context": Object {},
-      "_currentElement": <Curve
-        height={120}
-        options={
-                Object {
-                        "data": Array [
-                          200,
-                          100,
-                          200,
-                          180,
-                          -2.0943951023931957,
-                          -1.5707963267948966,
-                          true,
-                        ],
-                        "fill": "#3ef6ad",
-                      }
-        }
-        width={120}
-/>,
-      "_debugID": 5,
-      "_hostContainerInfo": null,
-      "_hostParent": null,
-      "_instance": Curve {
-        "_reactInternalInstance": [Circular],
-        "context": Object {},
-        "name": "curve",
-        "props": Object {
-          "height": 120,
-          "options": Object {
-            "data": Array [
-              200,
-              100,
-              200,
-              180,
-              -2.0943951023931957,
-              -1.5707963267948966,
-              true,
-            ],
-            "fill": "#3ef6ad",
-          },
-          "width": 120,
-        },
-        "refs": Object {},
-        "state": null,
-        "updater": Object {
-          "enqueueCallback": [Function],
-          "enqueueCallbackInternal": [Function],
-          "enqueueElementInternal": [Function],
-          "enqueueForceUpdate": [Function],
-          "enqueueReplaceState": [Function],
-          "enqueueSetState": [Function],
-          "isMounted": [Function],
-          "validateCallback": [Function],
-        },
-      },
-      "_mountOrder": 3,
-      "_pendingCallbacks": null,
-      "_pendingElement": null,
-      "_pendingForceUpdate": false,
-      "_pendingReplaceState": false,
-      "_pendingStateQueue": null,
-      "_renderedComponent": NoopInternalComponent {
-        "_currentElement": null,
-        "_debugID": 6,
-        "_renderedOutput": null,
-      },
-      "_renderedNodeType": 2,
-      "_rootNodeID": 0,
-      "_topLevelWrapper": null,
-      "_updateBatchNumber": null,
-      "_warnedAboutRefsInRender": false,
-    },
-    "getRenderOutput": [Function],
-    "render": [Function],
+  "options": Object {
+    "decodeEntities": true,
+    "normalizeWhitespace": false,
+    "withDomLvl1": true,
+    "xmlMode": false,
   },
-  "root": [Circular],
-  "unrendered": <Curve
-    height={120}
-    options={
-        Object {
-            "data": Array [
-              200,
-              100,
-              200,
-              180,
-              -2.0943951023931957,
-              -1.5707963267948966,
-              true,
-            ],
-            "fill": "#3ef6ad",
-          }
-    }
-    width={120}
-/>,
 }
 `;
 
 exports[`renders Ellipse correctly 1`] = `
-ShallowWrapper {
-  "complexSelector": ComplexSelector {
-    "buildPredicate": [Function],
-    "childrenOfNode": [Function],
-    "findWhereUnwrapped": [Function],
+initialize {
+  "0": Object {
+    "attribs": Object {},
+    "children": Array [
+      Object {
+        "attribs": Object {},
+        "children": Array [],
+        "name": "canvas",
+        "next": null,
+        "parent": null,
+        "prev": null,
+        "root": [Circular],
+        "type": "tag",
+      },
+    ],
+    "name": "root",
+    "next": null,
+    "parent": null,
+    "prev": null,
+    "type": "root",
   },
+  "_root": [Circular],
   "length": 1,
-  "node": null,
-  "nodes": Array [
-    null,
-  ],
-  "options": Object {},
-  "renderer": ReactShallowRenderer {
-    "_instance": ShallowComponentWrapper {
-      "_calledComponentWillUnmount": false,
-      "_compositeType": 0,
-      "_context": Object {},
-      "_currentElement": <Ellipse
-        height={120}
-        options={
-                Object {
-                        "data": Array [
-                          200,
-                          100,
-                          200,
-                          180,
-                          -2.0943951023931957,
-                          -1.5707963267948966,
-                          true,
-                        ],
-                        "fill": "#3ef6ad",
-                      }
-        }
-        width={120}
-/>,
-      "_debugID": 7,
-      "_hostContainerInfo": null,
-      "_hostParent": null,
-      "_instance": Ellipse {
-        "_reactInternalInstance": [Circular],
-        "context": Object {},
-        "name": "ellipse",
-        "props": Object {
-          "height": 120,
-          "options": Object {
-            "data": Array [
-              200,
-              100,
-              200,
-              180,
-              -2.0943951023931957,
-              -1.5707963267948966,
-              true,
-            ],
-            "fill": "#3ef6ad",
-          },
-          "width": 120,
-        },
-        "refs": Object {},
-        "state": null,
-        "updater": Object {
-          "enqueueCallback": [Function],
-          "enqueueCallbackInternal": [Function],
-          "enqueueElementInternal": [Function],
-          "enqueueForceUpdate": [Function],
-          "enqueueReplaceState": [Function],
-          "enqueueSetState": [Function],
-          "isMounted": [Function],
-          "validateCallback": [Function],
-        },
-      },
-      "_mountOrder": 4,
-      "_pendingCallbacks": null,
-      "_pendingElement": null,
-      "_pendingForceUpdate": false,
-      "_pendingReplaceState": false,
-      "_pendingStateQueue": null,
-      "_renderedComponent": NoopInternalComponent {
-        "_currentElement": null,
-        "_debugID": 8,
-        "_renderedOutput": null,
-      },
-      "_renderedNodeType": 2,
-      "_rootNodeID": 0,
-      "_topLevelWrapper": null,
-      "_updateBatchNumber": null,
-      "_warnedAboutRefsInRender": false,
-    },
-    "getRenderOutput": [Function],
-    "render": [Function],
+  "options": Object {
+    "decodeEntities": true,
+    "normalizeWhitespace": false,
+    "withDomLvl1": true,
+    "xmlMode": false,
   },
-  "root": [Circular],
-  "unrendered": <Ellipse
-    height={120}
-    options={
-        Object {
-            "data": Array [
-              200,
-              100,
-              200,
-              180,
-              -2.0943951023931957,
-              -1.5707963267948966,
-              true,
-            ],
-            "fill": "#3ef6ad",
-          }
-    }
-    width={120}
-/>,
 }
 `;
 
 exports[`renders Line correctly 1`] = `
-ShallowWrapper {
-  "complexSelector": ComplexSelector {
-    "buildPredicate": [Function],
-    "childrenOfNode": [Function],
-    "findWhereUnwrapped": [Function],
+initialize {
+  "0": Object {
+    "attribs": Object {},
+    "children": Array [
+      Object {
+        "attribs": Object {},
+        "children": Array [],
+        "name": "canvas",
+        "next": null,
+        "parent": null,
+        "prev": null,
+        "root": [Circular],
+        "type": "tag",
+      },
+    ],
+    "name": "root",
+    "next": null,
+    "parent": null,
+    "prev": null,
+    "type": "root",
   },
+  "_root": [Circular],
   "length": 1,
-  "node": null,
-  "nodes": Array [
-    null,
-  ],
-  "options": Object {},
-  "renderer": ReactShallowRenderer {
-    "_instance": ShallowComponentWrapper {
-      "_calledComponentWillUnmount": false,
-      "_compositeType": 0,
-      "_context": Object {},
-      "_currentElement": <Line
-        height={120}
-        options={
-                Object {
-                        "data": Array [
-                          200,
-                          100,
-                          200,
-                          180,
-                          -2.0943951023931957,
-                          -1.5707963267948966,
-                          true,
-                        ],
-                        "fill": "#3ef6ad",
-                      }
-        }
-        width={120}
-/>,
-      "_debugID": 9,
-      "_hostContainerInfo": null,
-      "_hostParent": null,
-      "_instance": Line {
-        "_reactInternalInstance": [Circular],
-        "context": Object {},
-        "name": "line",
-        "props": Object {
-          "height": 120,
-          "options": Object {
-            "data": Array [
-              200,
-              100,
-              200,
-              180,
-              -2.0943951023931957,
-              -1.5707963267948966,
-              true,
-            ],
-            "fill": "#3ef6ad",
-          },
-          "width": 120,
-        },
-        "refs": Object {},
-        "state": null,
-        "updater": Object {
-          "enqueueCallback": [Function],
-          "enqueueCallbackInternal": [Function],
-          "enqueueElementInternal": [Function],
-          "enqueueForceUpdate": [Function],
-          "enqueueReplaceState": [Function],
-          "enqueueSetState": [Function],
-          "isMounted": [Function],
-          "validateCallback": [Function],
-        },
-      },
-      "_mountOrder": 5,
-      "_pendingCallbacks": null,
-      "_pendingElement": null,
-      "_pendingForceUpdate": false,
-      "_pendingReplaceState": false,
-      "_pendingStateQueue": null,
-      "_renderedComponent": NoopInternalComponent {
-        "_currentElement": null,
-        "_debugID": 10,
-        "_renderedOutput": null,
-      },
-      "_renderedNodeType": 2,
-      "_rootNodeID": 0,
-      "_topLevelWrapper": null,
-      "_updateBatchNumber": null,
-      "_warnedAboutRefsInRender": false,
-    },
-    "getRenderOutput": [Function],
-    "render": [Function],
+  "options": Object {
+    "decodeEntities": true,
+    "normalizeWhitespace": false,
+    "withDomLvl1": true,
+    "xmlMode": false,
   },
-  "root": [Circular],
-  "unrendered": <Line
-    height={120}
-    options={
-        Object {
-            "data": Array [
-              200,
-              100,
-              200,
-              180,
-              -2.0943951023931957,
-              -1.5707963267948966,
-              true,
-            ],
-            "fill": "#3ef6ad",
-          }
-    }
-    width={120}
-/>,
 }
 `;
 
 exports[`renders Path correctly 1`] = `
-ShallowWrapper {
-  "complexSelector": ComplexSelector {
-    "buildPredicate": [Function],
-    "childrenOfNode": [Function],
-    "findWhereUnwrapped": [Function],
+initialize {
+  "0": Object {
+    "attribs": Object {},
+    "children": Array [
+      Object {
+        "attribs": Object {},
+        "children": Array [],
+        "name": "canvas",
+        "next": null,
+        "parent": null,
+        "prev": null,
+        "root": [Circular],
+        "type": "tag",
+      },
+    ],
+    "name": "root",
+    "next": null,
+    "parent": null,
+    "prev": null,
+    "type": "root",
   },
+  "_root": [Circular],
   "length": 1,
-  "node": null,
-  "nodes": Array [
-    null,
-  ],
-  "options": Object {},
-  "renderer": ReactShallowRenderer {
-    "_instance": ShallowComponentWrapper {
-      "_calledComponentWillUnmount": false,
-      "_compositeType": 0,
-      "_context": Object {},
-      "_currentElement": <Path
-        height={120}
-        options={
-                Object {
-                        "data": Array [
-                          200,
-                          100,
-                          200,
-                          180,
-                          -2.0943951023931957,
-                          -1.5707963267948966,
-                          true,
-                        ],
-                        "fill": "#3ef6ad",
-                      }
-        }
-        width={120}
-/>,
-      "_debugID": 11,
-      "_hostContainerInfo": null,
-      "_hostParent": null,
-      "_instance": Path {
-        "_reactInternalInstance": [Circular],
-        "context": Object {},
-        "name": "path",
-        "props": Object {
-          "height": 120,
-          "options": Object {
-            "data": Array [
-              200,
-              100,
-              200,
-              180,
-              -2.0943951023931957,
-              -1.5707963267948966,
-              true,
-            ],
-            "fill": "#3ef6ad",
-          },
-          "width": 120,
-        },
-        "refs": Object {},
-        "state": null,
-        "updater": Object {
-          "enqueueCallback": [Function],
-          "enqueueCallbackInternal": [Function],
-          "enqueueElementInternal": [Function],
-          "enqueueForceUpdate": [Function],
-          "enqueueReplaceState": [Function],
-          "enqueueSetState": [Function],
-          "isMounted": [Function],
-          "validateCallback": [Function],
-        },
-      },
-      "_mountOrder": 6,
-      "_pendingCallbacks": null,
-      "_pendingElement": null,
-      "_pendingForceUpdate": false,
-      "_pendingReplaceState": false,
-      "_pendingStateQueue": null,
-      "_renderedComponent": NoopInternalComponent {
-        "_currentElement": null,
-        "_debugID": 12,
-        "_renderedOutput": null,
-      },
-      "_renderedNodeType": 2,
-      "_rootNodeID": 0,
-      "_topLevelWrapper": null,
-      "_updateBatchNumber": null,
-      "_warnedAboutRefsInRender": false,
-    },
-    "getRenderOutput": [Function],
-    "render": [Function],
+  "options": Object {
+    "decodeEntities": true,
+    "normalizeWhitespace": false,
+    "withDomLvl1": true,
+    "xmlMode": false,
   },
-  "root": [Circular],
-  "unrendered": <Path
-    height={120}
-    options={
-        Object {
-            "data": Array [
-              200,
-              100,
-              200,
-              180,
-              -2.0943951023931957,
-              -1.5707963267948966,
-              true,
-            ],
-            "fill": "#3ef6ad",
-          }
-    }
-    width={120}
-/>,
 }
 `;
 
 exports[`renders Polygon correctly 1`] = `
-ShallowWrapper {
-  "complexSelector": ComplexSelector {
-    "buildPredicate": [Function],
-    "childrenOfNode": [Function],
-    "findWhereUnwrapped": [Function],
+initialize {
+  "0": Object {
+    "attribs": Object {},
+    "children": Array [
+      Object {
+        "attribs": Object {},
+        "children": Array [],
+        "name": "canvas",
+        "next": null,
+        "parent": null,
+        "prev": null,
+        "root": [Circular],
+        "type": "tag",
+      },
+    ],
+    "name": "root",
+    "next": null,
+    "parent": null,
+    "prev": null,
+    "type": "root",
   },
+  "_root": [Circular],
   "length": 1,
-  "node": null,
-  "nodes": Array [
-    null,
-  ],
-  "options": Object {},
-  "renderer": ReactShallowRenderer {
-    "_instance": ShallowComponentWrapper {
-      "_calledComponentWillUnmount": false,
-      "_compositeType": 0,
-      "_context": Object {},
-      "_currentElement": <Polygon
-        height={120}
-        options={
-                Object {
-                        "data": Array [
-                          200,
-                          100,
-                          200,
-                          180,
-                          -2.0943951023931957,
-                          -1.5707963267948966,
-                          true,
-                        ],
-                        "fill": "#3ef6ad",
-                      }
-        }
-        width={120}
-/>,
-      "_debugID": 13,
-      "_hostContainerInfo": null,
-      "_hostParent": null,
-      "_instance": Polygon {
-        "_reactInternalInstance": [Circular],
-        "context": Object {},
-        "name": "polygon",
-        "props": Object {
-          "height": 120,
-          "options": Object {
-            "data": Array [
-              200,
-              100,
-              200,
-              180,
-              -2.0943951023931957,
-              -1.5707963267948966,
-              true,
-            ],
-            "fill": "#3ef6ad",
-          },
-          "width": 120,
-        },
-        "refs": Object {},
-        "state": null,
-        "updater": Object {
-          "enqueueCallback": [Function],
-          "enqueueCallbackInternal": [Function],
-          "enqueueElementInternal": [Function],
-          "enqueueForceUpdate": [Function],
-          "enqueueReplaceState": [Function],
-          "enqueueSetState": [Function],
-          "isMounted": [Function],
-          "validateCallback": [Function],
-        },
-      },
-      "_mountOrder": 7,
-      "_pendingCallbacks": null,
-      "_pendingElement": null,
-      "_pendingForceUpdate": false,
-      "_pendingReplaceState": false,
-      "_pendingStateQueue": null,
-      "_renderedComponent": NoopInternalComponent {
-        "_currentElement": null,
-        "_debugID": 14,
-        "_renderedOutput": null,
-      },
-      "_renderedNodeType": 2,
-      "_rootNodeID": 0,
-      "_topLevelWrapper": null,
-      "_updateBatchNumber": null,
-      "_warnedAboutRefsInRender": false,
-    },
-    "getRenderOutput": [Function],
-    "render": [Function],
+  "options": Object {
+    "decodeEntities": true,
+    "normalizeWhitespace": false,
+    "withDomLvl1": true,
+    "xmlMode": false,
   },
-  "root": [Circular],
-  "unrendered": <Polygon
-    height={120}
-    options={
-        Object {
-            "data": Array [
-              200,
-              100,
-              200,
-              180,
-              -2.0943951023931957,
-              -1.5707963267948966,
-              true,
-            ],
-            "fill": "#3ef6ad",
-          }
-    }
-    width={120}
-/>,
+}
+`;
+
+exports[`renders ReactRough with nested Components 1`] = `
+initialize {
+  "0": Object {
+    "attribs": Object {},
+    "children": Array [
+      Object {
+        "attribs": Object {},
+        "children": Array [],
+        "name": "canvas",
+        "next": null,
+        "parent": null,
+        "prev": null,
+        "root": [Circular],
+        "type": "tag",
+      },
+    ],
+    "name": "root",
+    "next": null,
+    "parent": null,
+    "prev": null,
+    "type": "root",
+  },
+  "_root": [Circular],
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "normalizeWhitespace": false,
+    "withDomLvl1": true,
+    "xmlMode": false,
+  },
 }
 `;
 
 exports[`renders Rectangle correctly 1`] = `
-ShallowWrapper {
-  "complexSelector": ComplexSelector {
-    "buildPredicate": [Function],
-    "childrenOfNode": [Function],
-    "findWhereUnwrapped": [Function],
+initialize {
+  "0": Object {
+    "attribs": Object {},
+    "children": Array [
+      Object {
+        "attribs": Object {},
+        "children": Array [],
+        "name": "canvas",
+        "next": null,
+        "parent": null,
+        "prev": null,
+        "root": [Circular],
+        "type": "tag",
+      },
+    ],
+    "name": "root",
+    "next": null,
+    "parent": null,
+    "prev": null,
+    "type": "root",
   },
+  "_root": [Circular],
   "length": 1,
-  "node": null,
-  "nodes": Array [
-    null,
-  ],
-  "options": Object {},
-  "renderer": ReactShallowRenderer {
-    "_instance": ShallowComponentWrapper {
-      "_calledComponentWillUnmount": false,
-      "_compositeType": 0,
-      "_context": Object {},
-      "_currentElement": <Rectangle
-        height={120}
-        options={
-                Object {
-                        "data": Array [
-                          200,
-                          100,
-                          200,
-                          180,
-                          -2.0943951023931957,
-                          -1.5707963267948966,
-                          true,
-                        ],
-                        "fill": "#3ef6ad",
-                      }
-        }
-        width={120}
-/>,
-      "_debugID": 15,
-      "_hostContainerInfo": null,
-      "_hostParent": null,
-      "_instance": Rectangle {
-        "_reactInternalInstance": [Circular],
-        "context": Object {},
-        "name": "rectangle",
-        "props": Object {
-          "height": 120,
-          "options": Object {
-            "data": Array [
-              200,
-              100,
-              200,
-              180,
-              -2.0943951023931957,
-              -1.5707963267948966,
-              true,
-            ],
-            "fill": "#3ef6ad",
-          },
-          "width": 120,
-        },
-        "refs": Object {},
-        "state": null,
-        "updater": Object {
-          "enqueueCallback": [Function],
-          "enqueueCallbackInternal": [Function],
-          "enqueueElementInternal": [Function],
-          "enqueueForceUpdate": [Function],
-          "enqueueReplaceState": [Function],
-          "enqueueSetState": [Function],
-          "isMounted": [Function],
-          "validateCallback": [Function],
-        },
-      },
-      "_mountOrder": 8,
-      "_pendingCallbacks": null,
-      "_pendingElement": null,
-      "_pendingForceUpdate": false,
-      "_pendingReplaceState": false,
-      "_pendingStateQueue": null,
-      "_renderedComponent": NoopInternalComponent {
-        "_currentElement": null,
-        "_debugID": 16,
-        "_renderedOutput": null,
-      },
-      "_renderedNodeType": 2,
-      "_rootNodeID": 0,
-      "_topLevelWrapper": null,
-      "_updateBatchNumber": null,
-      "_warnedAboutRefsInRender": false,
-    },
-    "getRenderOutput": [Function],
-    "render": [Function],
+  "options": Object {
+    "decodeEntities": true,
+    "normalizeWhitespace": false,
+    "withDomLvl1": true,
+    "xmlMode": false,
   },
-  "root": [Circular],
-  "unrendered": <Rectangle
-    height={120}
-    options={
-        Object {
-            "data": Array [
-              200,
-              100,
-              200,
-              180,
-              -2.0943951023931957,
-              -1.5707963267948966,
-              true,
-            ],
-            "fill": "#3ef6ad",
-          }
-    }
-    width={120}
-/>,
+}
+`;
+
+exports[`renders Rectangle with the onRender Hook correctly 1`] = `
+initialize {
+  "0": Object {
+    "attribs": Object {},
+    "children": Array [
+      Object {
+        "attribs": Object {},
+        "children": Array [],
+        "name": "canvas",
+        "next": null,
+        "parent": null,
+        "prev": null,
+        "root": [Circular],
+        "type": "tag",
+      },
+    ],
+    "name": "root",
+    "next": null,
+    "parent": null,
+    "prev": null,
+    "type": "root",
+  },
+  "_root": [Circular],
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "normalizeWhitespace": false,
+    "withDomLvl1": true,
+    "xmlMode": false,
+  },
 }
 `;

@@ -1,6 +1,6 @@
 {
   "name": "react-rough",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Write Rough.js with React Components",
   "main": "dist/react-rough.js",
   "module": "dist/react-rough.es.js",
@@ -15,7 +15,7 @@
     "minify:cjs": "uglifyjs $npm_package_main -cm -o $npm_package_main -p relative --in-source-map ${npm_package_main}.map --source-map ${npm_package_main}.map",
     "minify:umd": "uglifyjs $npm_package_umd_main -cm toplevel -o $npm_package_umd_main -p relative --in-source-map ${npm_package_umd_main}.map --source-map ${npm_package_umd_main}.map",
     "size": "echo \"Gzipped Size: $(strip-json-comments --no-whitespace $npm_package_main | gzip-size)\"",
-    "test": "jest",
+    "test": "npm run flow && jest",
     "flow": "flow",
     "prepublish": "npm test"
   },
@@ -42,13 +42,11 @@
   "devDependencies": {
     "babel-eslint": "^7.1.1",
     "babel-plugin-external-helpers": "^6.18.0",
-    "babel-plugin-transform-flow-strip-types": "^6.22.0",
     "babel-preset-backpack": "^0.0.9",
     "babel-preset-react": "^6.23.0",
     "babel-preset-stage-0": "^6.22.0",
     "babel-register": "^6.18.0",
     "enzyme": "^2.7.1",
-    "enzyme-to-json": "^1.5.0",
     "eslint": "^3.12.2",
     "flow-bin": "^0.42.0",
     "gzip-size-cli": "^2.0.0",
