@@ -9,9 +9,9 @@
   </p>
 </p>
 
-### Usage
+## Usage
 Grab the Shape to be rendered from ReactRough, pass some options to it, pass an optional [onRender](https://github.com/ooade/react-rough/blob/master/src/index.js#L17) hook to spin up some animation logic or so.
-#### Render a Rectangle
+### Render a Rectangle
 ```js
 import { Rectangle } from 'react-rough';
 
@@ -28,7 +28,7 @@ render(
 
 When you grab a shape from ReactRough, it renders each shape to a canvas element. So how can we render different shapes on a single canvas element? We'll answer that below.
 
-#### Render shapes on one canvas element
+### Render shapes on one canvas element
 ```js
 import { ReactRough, Rectangle, Circle } from 'react-rough';
 
@@ -47,7 +47,7 @@ render(
 );
 ```
 
-#### onRender hook
+### onRender hook
 We can have the hook on a shape element, ReactRough element or both. Here's an example on a shape element.
 ```js
 const increaseWidth = rect => {
@@ -69,9 +69,9 @@ render (
 ```
 This increases the rectangle's width from 20px to 200px. Wanna see it in action on a ReactRough component? Check out our ReactRough animated logo example.
 
-### Examples
+## Examples
  - [ReactRough animated logo](https://jsfiddle.net/ooade/f8cmbfwL/)
  - Add yours...
 
-### License
+## License
 MIT
