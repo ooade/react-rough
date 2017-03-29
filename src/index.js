@@ -23,7 +23,7 @@ class RoughComponent extends React.Component {
   name: string;
 
   _prepareRough() {
-    const { width, height } = this.props;
+    const { width, height, onRender } = this.props;
 
     // Transverse through child components
     if (this.props.children) {
@@ -35,6 +35,13 @@ class RoughComponent extends React.Component {
         this._updateRough({ name: ChildComponent.name, rough, ...child.props })
       });
 
+      //Apply our Hook to rough
+      if (typeof onRender !== 'undefined') {
+        onRender(rough);
+      }
+
+    } else if (this.name === 'react-rough' && !this.props.children) {
+      throw new Error('ReactRough requires a child component');
     } else {
       // No Child, Create a canvas without tranversing through each child
       let rough = new RoughCanvas(this.refs.roughCanvas, width, height);
@@ -58,7 +65,7 @@ class RoughComponent extends React.Component {
     // Iterate over props and apply each prop to our element
     Object.keys(rest).forEach(prop => shape[prop] = rest[prop]);
 
-    //Apply our Hook
+    //Apply Hook to each shape
     if (typeof onRender !== 'undefined') {
       onRender(shape);
     }
