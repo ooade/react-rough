@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img src="logo.png" height="150" />
+  <img src="https://github.com/ooade/react-rough/raw/master/logo.png" height="150" />
   <h3 align="center">React Bindings for <a href="https://github.com/pshihn/rough">Rough.js</a></h3>
   <p align="center">
   <a href="https://www.npmjs.org/package/react-rough"><img src="https://img.shields.io/npm/v/react-rough.svg?style=flat" alt="npm"></a> <a href="https://travis-ci.org/ooade/react-rough"><img src="https://travis-ci.org/ooade/react-rough.svg?branch=master" alt="travis"></a>
