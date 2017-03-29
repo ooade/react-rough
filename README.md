@@ -10,8 +10,6 @@
 </p>
 
 ## Usage
-
-[![Greenkeeper badge](https://badges.greenkeeper.io/ooade/react-rough.svg)](https://greenkeeper.io/)
 Grab the Shape to be rendered from ReactRough, pass some options to it, pass an optional [onRender](https://github.com/ooade/react-rough/blob/master/src/index.js#L17) hook to spin up some animation logic or so.
 ### Render a Rectangle
 ```js
