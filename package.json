@@ -1,6 +1,6 @@
 {
   "name": "react-rough",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Write Rough.js with React Components",
   "main": "dist/react-rough.js",
   "module": "dist/react-rough.es.js",
