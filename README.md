@@ -4,6 +4,7 @@
   <h3 align="center">React Bindings for <a href="https://github.com/pshihn/rough">Rough.js</a></h3>
   <p align="center">
   <a href="https://www.npmjs.org/package/react-rough"><img src="https://img.shields.io/npm/v/react-rough.svg?style=flat" alt="npm"></a> <a href="https://travis-ci.org/ooade/react-rough"><img src="https://travis-ci.org/ooade/react-rough.svg?branch=master" alt="travis"></a>
+  <a href="https://snyk.io/test/github/ooade/react-rough"><img src="https://snyk.io/test/github/ooade/react-rough/badge.svg" alt="Known Vulnerabilities" data-canonical-src="https://snyk.io/test/github/ooade/react-rough" style="max-width:100%;"></a>
   <a href="http://makeapullrequest.com"><img src="https://img.shields.io/badge/PR(s)-welcome-brightgreen.svg?style=flat" alt="pullrequest"></a>
   <a href="http://www.firsttimersonly.com"><img src="https://img.shields.io/badge/first--timers--only-friendly-blue.svg" alt="firsttimersonly"></a>
   </p>
