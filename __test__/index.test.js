@@ -46,9 +46,6 @@ const increaseWidth = rect => {
   }
 };
 
-// Fake window.requestAnimationFrame
-window.requestAnimationFrame = () => ({});
-
 it ('renders ReactRough with nested Components', () => {
   const wrapper = render(
     <ReactRough width={800} height={700} >
