@@ -40,7 +40,7 @@
   ],
   "homepage": "https://github.com/ooade/react-rough#readme",
   "devDependencies": {
-    "babel-eslint": "^7.1.1",
+    "babel-eslint": "^8.0.0",
     "babel-plugin-external-helpers": "^6.18.0",
     "babel-preset-backpack": "^0.4.0-rc1",
     "babel-preset-react": "^6.23.0",
