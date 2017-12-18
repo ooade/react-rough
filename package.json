@@ -50,7 +50,7 @@
     "eslint": "^3.12.2",
     "flow-bin": "^0.46.0",
     "gzip-size-cli": "^2.0.0",
-    "jest": "^20.0.3",
+    "jest": "^22.0.0",
     "npm-run-all": "^4.0.2",
     "react": "^16.2.0",
     "react-addons-test-utils": "^15.4.2",
