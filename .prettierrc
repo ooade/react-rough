@@ -1,0 +1,6 @@
+{
+	"eslintIntegration": true,
+	"semi": false,
+	"useTabs": true,
+	"singleQuote": true
+}

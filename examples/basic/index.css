@@ -1,0 +1,29 @@
+.pimg,
+.myImage {
+	width: 500px;
+}
+
+.pimg__loading,
+.myImage__loading {
+	border: 1px solid #ddd;
+	filter: blur(1vw);
+}
+
+.pimg__wrapper {
+	display: inline-block !important;
+	position: relative;
+}
+
+.pimg__btn {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border: 2px solid #fff;
+	border-radius: 20px;
+	font-size: 14px;
+	padding: 0px 8px 2px;
+	cursor: pointer;
+	background: #333;
+	color: #fdfdfd;
+}
