@@ -12,6 +12,9 @@
 
 ## Usage
 Grab the Shape to be rendered from ReactRough, pass some options to it, pass an optional [onRender](https://github.com/ooade/react-rough/blob/master/src/index.js#L17) hook to spin up some animation logic or so.
+
+**Latest Release (next):** Check [this](https://github.com/ooade/react-rough/releases/tag/v1.0.0-alpha.1) guide which uses a very simple render prop approach. 
+
 ### Render a Rectangle
 ```js
 import { Rectangle } from 'react-rough';
