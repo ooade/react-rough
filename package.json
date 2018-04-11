@@ -45,7 +45,7 @@
 		"prop-types": "^15.6.0",
 		"react": "^16.2.0",
 		"react-dom": "^16.2.0",
-		"rollup": "^0.53.0",
+		"rollup": "^0.57.1",
 		"rollup-plugin-babel": "^3.0.3",
 		"strip-json-comments": "^2.0.1",
 		"uglifyjs": "^2.4.11"
