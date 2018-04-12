@@ -17,7 +17,6 @@ class ReactRough extends Component {
 		if (children) {
 			React.Children.map(children, child => {
 				const type = child.type.name.toLowerCase()
-
 				const { points, ...data } = child.props
 
 				rc[type](...points, data)
@@ -44,7 +43,7 @@ export const Arc = ({ width, height, points, ...data }) => {
 	)
 }
 
-export const Circle = ({ width, height, onRender, points, ...data }) => {
+export const Circle = ({ width, height, points, ...data }) => {
 	return (
 		<ReactRough
 			width={width}
