@@ -32,7 +32,7 @@
 		"extends": "eslint-config-synacor"
 	},
 	"devDependencies": {
-		"all-contributors-cli": "^4.10.1",
+		"all-contributors-cli": "^5.0.0",
 		"babel-cli": "^6.26.0",
 		"babel-plugin-external-helpers": "^6.22.0",
 		"babel-preset-env": "^1.6.1",
