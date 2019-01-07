@@ -52,6 +52,6 @@
 		"uglifyjs": "^2.4.11"
 	},
 	"dependencies": {
-		"roughjs": "^2.0.0"
+		"roughjs": "^3.0.0"
 	}
 }
