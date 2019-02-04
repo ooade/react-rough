@@ -1,57 +1,65 @@
 {
 	"name": "react-rough",
-	"version": "1.0.0-rc.1",
+	"version": "1.0.0",
 	"description": "React Bindings for Rough.js",
 	"main": "dist/react-rough.js",
 	"module": "dist/react-rough.es.js",
 	"umd": "dist/react-rough.umd.js",
 	"scripts": {
-		"build": "npm-run-all rollup minify:* -s size",
-		"contributors:add": "all-contributors add",
-		"minify:cjs":
-			"uglifyjs $npm_package_main -cm -o $npm_package_main -p relative --in-source-map ${npm_package_main}.map --source-map ${npm_package_main}.map",
-		"minify:umd":
-			"uglifyjs $npm_package_umd -cm toplevel -o $npm_package_umd -p relative --in-source-map ${npm_package_umd}.map --source-map ${npm_package_umd}.map",
-		"prepublish": "npm run build",
+		"test": "jest",
+		"lint": "eslint src/*",
+		"coverage": "jest --coverage",
+		"build": "npm-run-all rollup minify:*",
 		"rollup": "rollup -c rollup.config.js",
-		"size":
-			"echo \"Gzipped Size: $(strip-json-comments --no-whitespace $npm_package_main | gzip-size)\"",
-		"test": "jest"
+		"minify:cjs": "uglifyjs $npm_package_main -cm -o $npm_package_main --source-map",
+		"minify:umd": "uglifyjs $npm_package_umd -cm toplevel -o $npm_package_umd --source-map"
 	},
+	"files": [
+		"dist",
+		"README.md"
+	],
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/ooade/react-rough.git"
 	},
-	"author": "Ademola Adegbuyi <ooade96@gmail.com>",
-	"license": "MIT",
 	"bugs": {
 		"url": "https://github.com/ooade/react-rough/issues"
 	},
-	"homepage": "https://github.com/ooade/react-rough#readme",
-	"eslintConfig": {
-		"extends": "eslint-config-synacor"
-	},
+	"author": "Ademola Adegbuyi <ooade96@gmail.com>",
+	"license": "MIT",
 	"devDependencies": {
-		"all-contributors-cli": "^4.10.1",
+		"@babel/plugin-proposal-class-properties": "^7.3.0",
+		"@babel/preset-env": "^7.3.1",
+		"@babel/preset-react": "^7.0.0",
 		"babel-cli": "^6.26.0",
-		"babel-plugin-external-helpers": "^6.22.0",
-		"babel-preset-env": "^1.6.1",
-		"babel-preset-react": "^6.24.1",
-		"babel-preset-stage-2": "^6.24.1",
-		"enzyme": "^3.3.0",
-		"eslint-config-synacor": "^3.0.0",
-		"gzip-size-cli": "^2.1.0",
-		"jest": "^22.4.3",
-		"npm-run-all": "^4.1.2",
-		"prop-types": "^15.6.0",
-		"react": "^16.2.0",
-		"react-dom": "^16.2.0",
-		"rollup": "^0.53.0",
-		"rollup-plugin-babel": "^3.0.3",
-		"strip-json-comments": "^2.0.1",
+		"babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+		"enzyme": "^3.8.0",
+		"enzyme-adapter-react-16": "^1.8.0",
+		"eslint": "^5.13.0",
+		"eslint-plugin-import": "^2.16.0",
+		"eslint-plugin-jsx-a11y": "^6.2.0",
+		"eslint-plugin-react": "^7.12.4",
+		"jest": "^24.0.0",
+		"jest-canvas-mock": "^2.0.0-alpha.2",
+		"jest-enzyme": "^7.0.1",
+		"npm-run-all": "^4.1.5",
+		"prop-types": "^15.6.2",
+		"react": "^16.7.0",
+		"react-dom": "^16.7.0",
+		"rollup": "^1.1.2",
+		"rollup-plugin-babel": "^4.3.2",
+		"roughjs": "3.0.0",
 		"uglifyjs": "^2.4.11"
 	},
-	"dependencies": {
-		"roughjs": "^2.0.0"
+	"peerDependencies": {
+		"react": "^16.7.0",
+		"react-dom": "^16.7.0"
+	},
+	"dependencies": {},
+	"jest": {
+		"setupFilesAfterEnv": [
+			"./node_modules/jest-enzyme/lib/index.js",
+			"jest-canvas-mock"
+		]
 	}
 }

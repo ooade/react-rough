@@ -1,0 +1,188 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReactRough Arc should render properly with props 1`] = `
+<ReactRough
+  height={400}
+  width={200}
+>
+  <canvas
+    height={400}
+    width={200}
+  >
+    <Component
+      fill="red"
+      points={
+        Array [
+          50,
+          50,
+          80,
+        ]
+      }
+    >
+      <RoughConsumer
+        fill="red"
+        points={
+          Array [
+            50,
+            50,
+            80,
+          ]
+        }
+        type="arc"
+      />
+    </Component>
+  </canvas>
+</ReactRough>
+`;
+
+exports[`ReactRough Circle should render properly with props 1`] = `
+<ReactRough
+  height={400}
+  width={200}
+>
+  <canvas
+    height={400}
+    width={200}
+  >
+    <Component
+      fill="red"
+      points={
+        Array [
+          50,
+          50,
+          80,
+        ]
+      }
+    >
+      <RoughConsumer
+        fill="red"
+        points={
+          Array [
+            50,
+            50,
+            80,
+          ]
+        }
+        type="circle"
+      />
+    </Component>
+  </canvas>
+</ReactRough>
+`;
+
+exports[`ReactRough Core should render properly 1`] = `
+<canvas
+  height="400"
+  width="200"
+/>
+`;
+
+exports[`ReactRough Core should render properly with children 1`] = `
+<canvas
+  height="400"
+  width="200"
+/>
+`;
+
+exports[`ReactRough Ellipse should render properly with props 1`] = `
+<ReactRough
+  height={400}
+  width={200}
+>
+  <canvas
+    height={400}
+    width={200}
+  >
+    <Component
+      fill="blue"
+      points={
+        Array [
+          10,
+          50,
+          150,
+          80,
+        ]
+      }
+      stroke="red"
+    >
+      <RoughConsumer
+        fill="blue"
+        points={
+          Array [
+            10,
+            50,
+            150,
+            80,
+          ]
+        }
+        stroke="red"
+        type="ellipse"
+      />
+    </Component>
+  </canvas>
+</ReactRough>
+`;
+
+exports[`ReactRough Line should render properly with props 1`] = `
+<ReactRough
+  height={400}
+  width={200}
+>
+  <canvas
+    height={400}
+    width={200}
+  >
+    <Component
+      fill="blue"
+      points={
+        Array [
+          60,
+          60,
+          190,
+          60,
+        ]
+      }
+      stroke="red"
+    >
+      <RoughConsumer
+        fill="blue"
+        points={
+          Array [
+            60,
+            60,
+            190,
+            60,
+          ]
+        }
+        stroke="red"
+        type="line"
+      />
+    </Component>
+  </canvas>
+</ReactRough>
+`;
+
+exports[`ReactRough Path should render properly with props 1`] = `
+<ReactRough
+  height={400}
+  width={200}
+>
+  <canvas
+    height={400}
+    width={200}
+  >
+    <Component
+      dataString="M80 80 A 45 45, 0, 0, 0, 125 125 L 125 80 Z"
+      fill="blue"
+      stroke="red"
+    >
+      <RoughConsumer
+        dataString="M80 80 A 45 45, 0, 0, 0, 125 125 L 125 80 Z"
+        fill="blue"
+        stroke="red"
+        type="path"
+      />
+    </Component>
+  </canvas>
+</ReactRough>
+`;
