@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/ooade/react-rough/raw/master/logo.png" height="150" />
+  <img src="https://raw.githubusercontent.com/ooade/react-rough/6a550a44fd92b34102ff74dad0703fb3c7418dcb/logo.png" height="150" />
   <h3 align="center">React Bindings for <a href="https://github.com/pshihn/rough">Rough.js</a></h3>
   <p align="center">
   <a href="https://www.npmjs.org/package/react-rough"><img src="https://img.shields.io/npm/v/react-rough.svg?style=flat" alt="npm"></a>
