@@ -94,12 +94,12 @@ class ReactRough extends React.Component {
 		rcValid: false
 	};
 
-	shouldComponentUpdate(_, prevState) {
-		if (prevState.rcValid === this.state.rcValid) {
-			return false;
+	shouldComponentUpdate(_, nextState) {
+		if (nextState.rcValid && !this.state.rcValid) {
+			return true;
 		}
 
-		return true;
+		return false;
 	}
 
 	componentDidMount() {
