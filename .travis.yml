@@ -1,3 +1,13 @@
+sudo: false
 language: node_js
 node_js:
-  - "8.0"
+  - '10'
+notifications:
+  email: false
+cache:
+  directories: -node_modules
+script:
+  - npm run test
+  - npm run coverage
+after_sucess:
+  - npm run report-coverage
