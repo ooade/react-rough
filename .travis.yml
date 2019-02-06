@@ -9,5 +9,5 @@ cache:
 script:
   - npm run test
   - npm run coverage
-after_sucess:
+after_success:
   - npm run report-coverage

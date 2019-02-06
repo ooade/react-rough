@@ -11,84 +11,55 @@
   </p>
 </p>
 
-## Usage
+## Installation
 
-Grab the Shape to be rendered from ReactRough, pass some options to it, pass an optional [onRender](https://github.com/ooade/react-rough/blob/master/src/index.js#L17) hook to spin up some animation logic or so.
-
-**Latest Release (next):** Check [this](https://github.com/ooade/react-rough/releases/tag/v1.0.0-alpha.1) guide which uses a very simple render prop approach.
+```sh
+- npm add react-rough
+- npm add roughjs@2.0.0
+```
 
 ### Render a Rectangle
 
 ```js
-import { Rectangle } from 'react-rough';
+import ReactRough from 'react-rough';
 
 const options = {
-	data: [10, 10, 200, 200], // x, y, width, height
+	points: [10, 10, 200, 200], // x, y, width, height
 	fill: 'red',
 	fillWeight: 3
 };
 
-render(<Rectangle width={220} height={220} options={options} />);
+render(
+	<ReactRough width={220} height={220}>
+		<ReactRough.Rectangle options={options} />
+	</ReactRough>
+);
 ```
+
+`Note: A Static Method must be nested within a ReactRough Component, it could have other surrounding elements, but it's GrandParent must be a Rough Component`
 
 When you grab a shape from ReactRough, it renders each shape to a canvas element. So how can we render different shapes on a single canvas element? We'll answer that below.
 
-### Render shapes on one canvas element
+### Render multiple shapes on one canvas element
 
 ```js
 import { ReactRough, Rectangle, Circle } from 'react-rough';
 
 render(
-	<ReactRough width={500} height={500}>
-		<Rectangle
-			options={{
-				data: [10, 10, 200, 200], // x, y, width, height
-				fill: 'red',
-				fillWeight: 3
-			}}
-		/>
-		<Circle
-			options={{
-				data: [80, 120, 50], // centerX, centerY, radius
-				fill: 'blue'
-			}}
+	<ReactRough width={200} height={400}>
+		<ReactRough.Circle points={[50, 50, 80]} fill="red" />
+		<ReactRough.Polygon
+			points={[[690, 130], [790, 140], [750, 240], [690, 220]]}
+			fill="blue"
+			stroke="green"
 		/>
 	</ReactRough>
 );
 ```
 
-### onRender hook
-
-We can have the hook on a shape element, ReactRough element or both. Here's an example on a shape element.
-
-```js
-const increaseWidth = rect => {
-	if (rect.width < 200) {
-		rect.width = rect.width + 10;
-		setTimeout(() => increaseWidth(rect), 100);
-	}
-};
-
-const options = {
-	data: [10, 10, 20, 100],
-	fill: 'red',
-	hachureGap: 8
-};
-
-render(
-	<Rectangle
-		width={220}
-		height={220}
-		options={options}
-		onRender={increaseWidth}
-	/>
-);
-```
-
-This increases the rectangle's width from 20px to 200px. Wanna see it in action on a ReactRough component? Check out our ReactRough animated logo example.
-
 ## Examples
 
+- [CodeSandBox](https://codesandbox.io/s/r582mor7wq)
 - [ReactRough animated logo](https://jsfiddle.net/ooade/f8cmbfwL/)
 - Add yours...
 
