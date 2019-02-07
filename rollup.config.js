@@ -4,11 +4,10 @@ let pkg = require('./package.json');
 
 export default {
 	input: 'src/index.js',
-	external: ['react', 'prop-types'],
+	external: ['react'],
 	plugins: [
 		babel({
-			exclude: 'node_modules/**',
-			plugins: ['transform-react-remove-prop-types']
+			exclude: 'node_modules/**'
 		})
 	],
 	output: [
@@ -29,8 +28,7 @@ export default {
 			sourcemap: true,
 			globals: {
 				react: 'react',
-				roughjs: 'roughjs',
-				'prop-types': 'prop-types'
+				roughjs: 'roughjs'
 			}
 		}
 	]

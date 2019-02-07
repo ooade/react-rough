@@ -1,5 +1,4 @@
 import React from 'react';
-import Proptypes from 'prop-types';
 import Rough from 'roughjs';
 
 const RoughContext = React.createContext();
@@ -104,12 +103,11 @@ export const Polygon = props => <RoughConsumer type="polygon" {...props} />;
 export const Rectangle = props => <RoughConsumer type="rectangle" {...props} />;
 
 class ReactRough extends React.Component {
-	rendererRef = React.createRef();
-
 	constructor(props) {
 		super(props);
 		this.rc = null;
 		this.ctx = null;
+		this.rendererRef = React.createRef();
 	}
 
 	componentDidMount() {
