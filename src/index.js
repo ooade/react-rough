@@ -3,7 +3,6 @@ import Proptypes from 'prop-types';
 import Rough from 'roughjs';
 
 const RoughContext = React.createContext();
-const CanvasRef = React.createRef();
 
 const __VALID_KEYS__ = [
 	'bowing',
@@ -94,34 +93,53 @@ class ReactRough extends React.Component {
 		return <RoughConsumer type="rectangle" {...props} />;
 	};
 
-	state = {
-		rcValid: false
-	};
-
-	shouldComponentUpdate(_, nextState) {
-		if (nextState.rcValid && !this.state.rcValid) {
-			return true;
-		}
-
-		return false;
+	constructor(props) {
+		super(props);
+		this.canvasRef = React.createRef();
+		this.rc = null;
+		this.ctx = null;
 	}
 
 	componentDidMount() {
-		const rc = Rough.canvas(CanvasRef.current);
-		this.rc = rc;
+		this.ctx = this.canvasRef.current.getContext('2d');
+		// First render canvas clear
+		this.clearCanvas();
+		this.rc = Rough.canvas(this.canvasRef.current);
 
-		if (!this.state.rcValid) {
-			this.setState({ rcValid: true });
+	}
+
+	clearCanvas() {
+		const { backgroundColor, width, height } = this.props;
+		// If this is the first render the ctx will be null
+		// It will be cleared later on componentDidMount
+		if (!this.ctx) {
+			return
+		}
+
+		if (backgroundColor) {
+			this.ctx.save();
+			this.ctx.fillStyle = backgroundColor;
+			this.ctx.fillRect(0, 0, width, height);
+			this.ctx.restore();
+		} else {
+			this.ctx.clearRect(0, 0, width, height);
 		}
 	}
 
+	redraw() {
+		this.forceUpdate()
+	}
+
 	render() {
-		const { width, height } = this.props;
+		const { width, height, children } = this.props;
+
+		// First clear the canvas in case of a new render
+		this.clearCanvas();
 
 		return (
 			<RoughContext.Provider value={{ rc: this.rc }}>
-				<canvas width={width} height={height} ref={CanvasRef}>
-					{this.props.children}
+				<canvas width={width} height={height} ref={this.canvasRef}>
+					{children}
 				</canvas>
 			</RoughContext.Provider>
 		);
