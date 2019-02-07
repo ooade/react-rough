@@ -75,7 +75,7 @@ export const RoughConsumer = ({ type, dataString, points, ...data }) => (
 				} else {
 					node = contextValue.rc[type](...points, data);
 				}
-				return contextValue.backend === 'svg' ? <NodeMounter node={node} /> : null;
+				return contextValue.renderer === 'svg' ? <NodeMounter node={node} /> : null;
 			}
 
 			return null;
@@ -104,7 +104,7 @@ export const Polygon = props => <RoughConsumer type="polygon" {...props} />;
 export const Rectangle = props => <RoughConsumer type="rectangle" {...props} />;
 
 class ReactRough extends React.Component {
-	backendRef = React.createRef();
+	rendererRef = React.createRef();
 
 	constructor(props) {
 		super(props);
@@ -113,9 +113,9 @@ class ReactRough extends React.Component {
 	}
 
 	componentDidMount() {
-		const { backend } = this.props
-		this.ctx = backend == 'canvas' && this.backendRef.current.getContext('2d');
-		this.rc = Rough[backend](this.backendRef.current);
+		const { renderer } = this.props
+		this.ctx = renderer == 'canvas' && this.rendererRef.current.getContext('2d');
+		this.rc = Rough[renderer](this.rendererRef.current);
 		// Force a render now that we have the canvas
 		this.forceUpdate();
 	}
@@ -143,27 +143,27 @@ class ReactRough extends React.Component {
 	}
 
 	render() {
-		const { width, height, backend, backgroundColor } = this.props;
+		const { width, height, renderer, backgroundColor } = this.props;
 		let children = this.props.children
 
-		const backendOptions = {
+		const rendererOptions = {
 			width, height
 		}
 
 		// First clear the canvas in case of a new render
-		if (backend === 'canvas') {
+		if (renderer === 'canvas') {
 			this.clearCanvas();
 		} else {
-			backendOptions.style = {backgroundColor}
+			rendererOptions.style = {backgroundColor}
 		}
 
-		const Backend = backend
+		const Renderer = renderer
 
 		return (
-			<RoughContext.Provider value={{ rc: this.rc, backend }}>
-				<Backend {...backendOptions} ref={this.backendRef}>
+			<RoughContext.Provider value={{ rc: this.rc, renderer }}>
+				<Renderer {...rendererOptions} ref={this.rendererRef}>
 					{children}
-				</Backend>
+				</Renderer>
 			</RoughContext.Provider>
 		);
 	}
@@ -172,7 +172,7 @@ class ReactRough extends React.Component {
 ReactRough.defaultProps = {
 	width: 500,
 	height: 500,
-	backend: 'canvas'
+	renderer: 'canvas'
 };
 
 export default ReactRough;

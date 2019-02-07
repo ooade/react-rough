@@ -2,8 +2,8 @@
 
 exports[`ReactRough Arc should render properly with props 1`] = `
 <ReactRough
-  backend="canvas"
   height={400}
+  renderer="canvas"
   width={200}
 >
   <canvas
@@ -38,8 +38,8 @@ exports[`ReactRough Arc should render properly with props 1`] = `
 
 exports[`ReactRough Circle should render properly with props 1`] = `
 <ReactRough
-  backend="canvas"
   height={400}
+  renderer="canvas"
   width={200}
 >
   <canvas
@@ -81,8 +81,8 @@ exports[`ReactRough Core should render properly 1`] = `
 
 exports[`ReactRough Core should render properly when nested within other components 1`] = `
 <ReactRough
-  backend="canvas"
   height={400}
+  renderer="canvas"
   width={200}
 >
   <canvas
@@ -100,8 +100,8 @@ exports[`ReactRough Core should render properly when nested within other compone
 
 exports[`ReactRough Core should render properly with children 1`] = `
 <ReactRough
-  backend="canvas"
   height={400}
+  renderer="canvas"
   width={200}
 >
   <canvas
@@ -134,7 +134,7 @@ exports[`ReactRough Core should render properly with children 1`] = `
 </ReactRough>
 `;
 
-exports[`ReactRough Core should render properly with svg backend 1`] = `
+exports[`ReactRough Core should render properly with svg renderer 1`] = `
 <svg
   height="400"
   width="200"
@@ -143,9 +143,9 @@ exports[`ReactRough Core should render properly with svg backend 1`] = `
 
 exports[`ReactRough Core should use backgroundColor as canvas background color 1`] = `
 <ReactRough
-  backend="canvas"
   backgroundColor="rgba(126, 255, 0, 0.1)"
   height={400}
+  renderer="canvas"
   width={200}
 >
   <canvas
@@ -180,9 +180,9 @@ exports[`ReactRough Core should use backgroundColor as canvas background color 1
 
 exports[`ReactRough Core should use backgroundColor as svg background color 1`] = `
 <ReactRough
-  backend="svg"
   backgroundColor="rgba(126, 255, 0, 0.1)"
   height={400}
+  renderer="svg"
   width={200}
 >
   <svg
@@ -199,8 +199,8 @@ exports[`ReactRough Core should use backgroundColor as svg background color 1`] 
 
 exports[`ReactRough Curve should render properly with props 1`] = `
 <ReactRough
-  backend="canvas"
   height={400}
+  renderer="canvas"
   width={200}
 >
   <canvas
@@ -389,8 +389,8 @@ exports[`ReactRough Curve should render properly with props 1`] = `
 
 exports[`ReactRough Ellipse should render properly with props 1`] = `
 <ReactRough
-  backend="canvas"
   height={400}
+  renderer="canvas"
   width={200}
 >
   <canvas
@@ -429,8 +429,8 @@ exports[`ReactRough Ellipse should render properly with props 1`] = `
 
 exports[`ReactRough Line should render properly with props 1`] = `
 <ReactRough
-  backend="canvas"
   height={400}
+  renderer="canvas"
   width={200}
 >
   <canvas
@@ -469,8 +469,8 @@ exports[`ReactRough Line should render properly with props 1`] = `
 
 exports[`ReactRough LinearPath should render properly with props 1`] = `
 <ReactRough
-  backend="canvas"
   height={400}
+  renderer="canvas"
   width={200}
 >
   <canvas
@@ -533,8 +533,8 @@ exports[`ReactRough LinearPath should render properly with props 1`] = `
 
 exports[`ReactRough Path should render properly with props 1`] = `
 <ReactRough
-  backend="canvas"
   height={400}
+  renderer="canvas"
   width={200}
 >
   <canvas
@@ -559,8 +559,8 @@ exports[`ReactRough Path should render properly with props 1`] = `
 
 exports[`ReactRough Polygon should render properly with props 1`] = `
 <ReactRough
-  backend="canvas"
   height={400}
+  renderer="canvas"
   width={200}
 >
   <canvas
@@ -623,8 +623,8 @@ exports[`ReactRough Polygon should render properly with props 1`] = `
 
 exports[`ReactRough Rectangle should render properly with props 1`] = `
 <ReactRough
-  backend="canvas"
   height={400}
+  renderer="canvas"
   width={200}
 >
   <canvas
