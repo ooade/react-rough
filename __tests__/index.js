@@ -39,7 +39,7 @@ describe('ReactRough', () => {
 			const spy = jest.spyOn(ReactRough.prototype, 'clearCanvas');
 			const wrapper = mount(
 				<ReactRough width={200} height={400}>
-					<ReactRough.Circle points={[50, 50, 80]} fill="red" />
+					<Circle points={[50, 50, 80]} fill="red" />
 				</ReactRough>
 			);
 			expect(wrapper.instance().ctx).not.toBeNull()
@@ -51,7 +51,7 @@ describe('ReactRough', () => {
 			const spy = jest.spyOn(ReactRough.prototype, 'clearCanvas');
 			const wrapper = mount(
 				<ReactRough width={200} height={400}>
-					<ReactRough.Circle points={[50, 50, 80]} fill="red" />
+					<Circle points={[50, 50, 80]} fill="red" />
 				</ReactRough>
 			);
 			expect(spy).toHaveBeenCalledTimes(2);
@@ -67,7 +67,7 @@ describe('ReactRough', () => {
 					height={400}
 					backgroundColor="rgba(126, 255, 0, 0.1)"
 				>
-					<ReactRough.Circle points={[50, 50, 80]} fill="red" />
+					<Circle points={[50, 50, 80]} fill="red" />
 				</ReactRough>
 			);
 			expect(wrapper).toMatchSnapshot();

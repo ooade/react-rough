@@ -140,7 +140,7 @@ exports[`ReactRough Core should use backgroundColor as canvas background color 1
     height={400}
     width={200}
   >
-    <Component
+    <Circle
       fill="red"
       points={
         Array [
@@ -161,7 +161,7 @@ exports[`ReactRough Core should use backgroundColor as canvas background color 1
         }
         type="circle"
       />
-    </Component>
+    </Circle>
   </canvas>
 </ReactRough>
 `;
@@ -442,7 +442,7 @@ exports[`ReactRough LinearPath should render properly with props 1`] = `
     height={400}
     width={200}
   >
-    <Component
+    <LinearPath
       fill="blue"
       points={
         Array [
@@ -491,7 +491,7 @@ exports[`ReactRough LinearPath should render properly with props 1`] = `
         stroke="red"
         type="linearPath"
       />
-    </Component>
+    </LinearPath>
   </canvas>
 </ReactRough>
 `;
