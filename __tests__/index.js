@@ -199,4 +199,20 @@ describe('ReactRough', () => {
 			expect(wrapper).toMatchSnapshot();
 		});
 	});
+
+	describe('LinearPath', () => {
+		it('should render properly with props', () => {
+			const wrapper = mount(
+				<ReactRough width={200} height={400}>
+					<ReactRough.LinearPath
+						points={[[690, 130], [790, 140], [750, 240], [690, 220]]}
+						fill="blue"
+						stroke="red"
+					/>
+				</ReactRough>
+			);
+
+			expect(wrapper).toMatchSnapshot();
+		});
+	});
 });

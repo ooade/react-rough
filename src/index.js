@@ -70,6 +70,7 @@ export const Path = props => <RoughConsumer type="path" {...props} />;
 
 export const Polygon = props => <RoughConsumer type="polygon" {...props} />;
 
+
 export const Rectangle = props => <RoughConsumer type="rectangle" {...props} />;
 
 class ReactRough extends React.Component {
