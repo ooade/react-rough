@@ -37,7 +37,9 @@ describe('ReactRough', () => {
 		});
 
 		it('should render properly with svg renderer', () => {
-			const wrapper = render(<ReactRough width={200} height={400} renderer="svg" />);
+			const wrapper = render(
+				<ReactRough width={200} height={400} renderer="svg" />
+			);
 			expect(wrapper).toMatchSnapshot();
 		});
 
@@ -48,7 +50,7 @@ describe('ReactRough', () => {
 					<Circle points={[50, 50, 80]} fill="red" />
 				</ReactRough>
 			);
-			expect(wrapper.instance().ctx).not.toBeNull()
+			expect(wrapper.instance().ctx).not.toBeNull();
 			expect(spy).toHaveBeenCalledTimes(2);
 			spy.mockRestore();
 		});
@@ -138,25 +140,27 @@ describe('ReactRough', () => {
 					<Circle points={[50, 50, 80]} fill="red" />
 				</ReactRough>
 			);
-			expect(cDMspy).toHaveBeenCalledTimes(1)
-			expect(cDUspy).toHaveBeenCalledTimes(0)
-			expect(cWUspy).toHaveBeenCalledTimes(0)
+			expect(cDMspy).toHaveBeenCalledTimes(1);
+			expect(cDUspy).toHaveBeenCalledTimes(0);
+			expect(cWUspy).toHaveBeenCalledTimes(0);
 			const firstRender = wrapper.find('g').html();
 
 			wrapper.setProps({
-				children: React.cloneElement(wrapper.props().children, { points: [60, 60, 90] })
+				children: React.cloneElement(wrapper.props().children, {
+					points: [60, 60, 90]
+				})
 			});
-			expect(cDMspy).toHaveBeenCalledTimes(1)
-			expect(cDUspy).toHaveBeenCalledTimes(1)
-			expect(cWUspy).toHaveBeenCalledTimes(0)
+			expect(cDMspy).toHaveBeenCalledTimes(1);
+			expect(cDUspy).toHaveBeenCalledTimes(1);
+			expect(cWUspy).toHaveBeenCalledTimes(0);
 
 			const secondRender = wrapper.find('g').html();
 			expect(secondRender).not.toEqual(firstRender);
 
 			wrapper.unmount();
-			expect(cDMspy).toHaveBeenCalledTimes(1)
-			expect(cDUspy).toHaveBeenCalledTimes(1)
-			expect(cWUspy).toHaveBeenCalledTimes(1)
+			expect(cDMspy).toHaveBeenCalledTimes(1);
+			expect(cDUspy).toHaveBeenCalledTimes(1);
+			expect(cWUspy).toHaveBeenCalledTimes(1);
 		});
 	});
 
