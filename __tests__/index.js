@@ -196,7 +196,7 @@ describe('ReactRough', () => {
 
 		it('should throw error when points is used', () => {
 			expect(() => {
-				const wrapper = mount(
+				mount(
 					<ReactRough width={200} height={400}>
 						<ReactRough.Path
 							points="M80 80 A 45 45, 0, 0, 0, 125 125 L 125 80 Z"
