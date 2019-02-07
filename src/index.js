@@ -19,7 +19,7 @@ const __VALID_KEYS__ = [
 	'strokeWidth'
 ];
 
-class NodeMounter extends React.Component {
+export class NodeMounter extends React.Component {
 	constructor(props) {
 		super(props);
 		this.ref = React.createRef();
@@ -32,10 +32,8 @@ class NodeMounter extends React.Component {
 
 	componentDidUpdate({node: prevNode}) {
 		const {node} = this.props;
-		if(prevNode !== node) {
-			this.ref.current.removeChild(prevNode);
-			this.ref.current.appendChild(node);
-		}
+		this.ref.current.removeChild(prevNode);
+		this.ref.current.appendChild(node);
 	}
 
 	componentWillUnmount() {
@@ -145,19 +143,25 @@ class ReactRough extends React.Component {
 	}
 
 	render() {
-		const { width, height, backend } = this.props;
+		const { width, height, backend, backgroundColor } = this.props;
 		let children = this.props.children
+
+		const backendOptions = {
+			width, height
+		}
 
 		// First clear the canvas in case of a new render
 		if (backend === 'canvas') {
 			this.clearCanvas();
+		} else {
+			backendOptions.style = {backgroundColor}
 		}
 
 		const Backend = backend
 
 		return (
 			<RoughContext.Provider value={{ rc: this.rc, backend }}>
-				<Backend width={width} height={height} ref={this.backendRef}>
+				<Backend {...backendOptions} ref={this.backendRef}>
 					{children}
 				</Backend>
 			</RoughContext.Provider>

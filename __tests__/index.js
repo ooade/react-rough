@@ -3,6 +3,7 @@ import { configure, mount, render } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 import ReactRough, {
+	NodeMounter,
 	Arc,
 	Circle,
 	Curve,
@@ -32,6 +33,11 @@ describe('ReactRough', () => {
 	describe('Core', () => {
 		it('should render properly', () => {
 			const wrapper = render(<ReactRough width={200} height={400} />);
+			expect(wrapper).toMatchSnapshot();
+		});
+
+		it('should render properly with svg backend', () => {
+			const wrapper = render(<ReactRough width={200} height={400} backend="svg" />);
 			expect(wrapper).toMatchSnapshot();
 		});
 
@@ -73,6 +79,18 @@ describe('ReactRough', () => {
 			expect(wrapper).toMatchSnapshot();
 		});
 
+		it('should use backgroundColor as svg background color', () => {
+			const wrapper = mount(
+				<ReactRough
+					width={200}
+					height={400}
+					backgroundColor="rgba(126, 255, 0, 0.1)"
+					backend="svg"
+				/>
+			);
+			expect(wrapper).toMatchSnapshot();
+		});
+
 		it('should render properly with children', () => {
 			const wrapper = mount(
 				<ReactRough width={200} height={400}>
@@ -109,6 +127,36 @@ describe('ReactRough', () => {
 					</ReactRough>
 				)
 			).toThrowError('Invalid key "fsill" assigned to "circle component"');
+		});
+
+		it('should update svg as the props update', () => {
+			const cDMspy = jest.spyOn(NodeMounter.prototype, 'componentDidMount');
+			const cDUspy = jest.spyOn(NodeMounter.prototype, 'componentDidUpdate');
+			const cWUspy = jest.spyOn(NodeMounter.prototype, 'componentWillUnmount');
+			const wrapper = mount(
+				<ReactRough width={200} height={400} backend="svg">
+					<Circle points={[50, 50, 80]} fill="red" />
+				</ReactRough>
+			);
+			expect(cDMspy).toHaveBeenCalledTimes(1)
+			expect(cDUspy).toHaveBeenCalledTimes(0)
+			expect(cWUspy).toHaveBeenCalledTimes(0)
+			const firstRender = wrapper.find('g').html();
+
+			wrapper.setProps({
+				children: React.cloneElement(wrapper.props().children, { points: [60, 60, 90] })
+			});
+			expect(cDMspy).toHaveBeenCalledTimes(1)
+			expect(cDUspy).toHaveBeenCalledTimes(1)
+			expect(cWUspy).toHaveBeenCalledTimes(0)
+
+			const secondRender = wrapper.find('g').html();
+			expect(secondRender).not.toEqual(firstRender);
+
+			wrapper.unmount();
+			expect(cDMspy).toHaveBeenCalledTimes(1)
+			expect(cDUspy).toHaveBeenCalledTimes(1)
+			expect(cWUspy).toHaveBeenCalledTimes(1)
 		});
 	});
 
