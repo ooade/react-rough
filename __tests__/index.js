@@ -24,28 +24,29 @@ describe('ReactRough', () => {
 			expect(wrapper).toMatchSnapshot();
 		});
 
-		it('should render update once to change rcValid state', () => {
+		it('should clear the canvas on first render', () => {
+			const spy = jest.spyOn(ReactRough.prototype, 'clearCanvas');
 			const wrapper = mount(
 				<ReactRough width={200} height={400}>
 					<ReactRough.Circle points={[50, 50, 80]} fill="red" />
 				</ReactRough>
 			);
-			const spy = jest.spyOn(ReactRough.prototype, 'shouldComponentUpdate');
-			wrapper
-				.instance()
-				.shouldComponentUpdate(wrapper.props(), wrapper.state());
-			expect(spy).toHaveBeenCalledTimes(1);
+			expect(wrapper.instance().ctx).not.toBeNull()
+			expect(spy).toHaveBeenCalledTimes(2);
+			spy.mockRestore();
 		});
 
-		it('should change rcValid state on componentDidMount', () => {
+		it('should clear the canvas on redraw', () => {
+			const spy = jest.spyOn(ReactRough.prototype, 'clearCanvas');
 			const wrapper = mount(
 				<ReactRough width={200} height={400}>
 					<ReactRough.Circle points={[50, 50, 80]} fill="red" />
 				</ReactRough>
 			);
-			jest.spyOn(ReactRough.prototype, 'componentDidMount');
-			wrapper.instance().componentDidMount();
-			expect(wrapper.state('rcValid')).toBe(true);
+			expect(spy).toHaveBeenCalledTimes(2);
+			wrapper.instance().redraw();
+			expect(spy).toHaveBeenCalledTimes(3);
+			spy.mockRestore();
 		});
 
 		it('should render properly with children', () => {
