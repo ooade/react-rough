@@ -19,6 +19,35 @@ const __VALID_KEYS__ = [
 	'strokeWidth'
 ];
 
+class NodeMounter extends React.Component {
+	constructor(props) {
+		super(props);
+		this.ref = React.createRef();
+	}
+
+	componentDidMount() {
+		const { node } = this.props;
+		this.ref.current.appendChild(node);
+	}
+
+	componentDidUpdate({node: prevNode}) {
+		const {node} = this.props;
+		if(prevNode !== node) {
+			this.ref.current.removeChild(prevNode);
+			this.ref.current.appendChild(node);
+		}
+	}
+
+	componentWillUnmount() {
+		const { node } = this.props;
+		this.ref.current.removeChild(node);
+	}
+
+	render() {
+		return <g ref={this.ref} />;
+	}
+}
+
 export const RoughConsumer = ({ type, dataString, points, ...data }) => (
 	<RoughContext.Consumer>
 		{contextValue => {
@@ -35,7 +64,7 @@ export const RoughConsumer = ({ type, dataString, points, ...data }) => (
 					);
 				}
 			}
-
+			let node = null
 			if (contextValue.rc) {
 				if (type === 'path') {
 					if (typeof points !== 'undefined') {
@@ -44,11 +73,11 @@ export const RoughConsumer = ({ type, dataString, points, ...data }) => (
 						);
 					}
 
-					contextValue.rc[type](dataString, data);
+					node = contextValue.rc[type](dataString, data);
 				} else {
-					contextValue.rc[type](...points, data);
+					node = contextValue.rc[type](...points, data);
 				}
-				return null;
+				return contextValue.backend === 'svg' ? <NodeMounter node={node} /> : null;
 			}
 
 			return null;
@@ -77,7 +106,7 @@ export const Polygon = props => <RoughConsumer type="polygon" {...props} />;
 export const Rectangle = props => <RoughConsumer type="rectangle" {...props} />;
 
 class ReactRough extends React.Component {
-	canvasRef = React.createRef();
+	backendRef = React.createRef();
 
 	constructor(props) {
 		super(props);
@@ -86,8 +115,9 @@ class ReactRough extends React.Component {
 	}
 
 	componentDidMount() {
-		this.ctx = this.canvasRef.current.getContext('2d');
-		this.rc = Rough.canvas(this.canvasRef.current);
+		const { backend } = this.props
+		this.ctx = backend == 'canvas' && this.backendRef.current.getContext('2d');
+		this.rc = Rough[backend](this.backendRef.current);
 		// Force a render now that we have the canvas
 		this.forceUpdate();
 	}
@@ -115,16 +145,21 @@ class ReactRough extends React.Component {
 	}
 
 	render() {
-		const { width, height, children } = this.props;
+		const { width, height, backend } = this.props;
+		let children = this.props.children
 
 		// First clear the canvas in case of a new render
-		this.clearCanvas();
+		if (backend === 'canvas') {
+			this.clearCanvas();
+		}
+
+		const Backend = backend
 
 		return (
-			<RoughContext.Provider value={{ rc: this.rc }}>
-				<canvas width={width} height={height} ref={this.canvasRef}>
+			<RoughContext.Provider value={{ rc: this.rc, backend }}>
+				<Backend width={width} height={height} ref={this.backendRef}>
 					{children}
-				</canvas>
+				</Backend>
 			</RoughContext.Provider>
 		);
 	}
@@ -132,23 +167,8 @@ class ReactRough extends React.Component {
 
 ReactRough.defaultProps = {
 	width: 500,
-	height: 500
-};
-
-ReactRough.propTypes = {
-	bowing: Proptypes.number,
-	dataString: Proptypes.string,
-	fill: Proptypes.string,
-	fillStyle: Proptypes.string,
-	fillWeight: Proptypes.number,
-	hachureAngle: Proptypes.number,
-	hachureGap: Proptypes.number,
-	height: Proptypes.number,
-	width: Proptypes.number,
-	points: Proptypes.arrayOf(Number),
-	roughness: Proptypes.number,
-	stroke: Proptypes.string,
-	strokeWidth: Proptypes.number
+	height: 500,
+	backend: 'canvas'
 };
 
 export default ReactRough;
