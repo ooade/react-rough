@@ -68,6 +68,8 @@ export const Line = props => <RoughConsumer type="line" {...props} />;
 
 export const Path = props => <RoughConsumer type="path" {...props} />;
 
+export const LinearPath = props => <RoughConsumer type="linearPath" {...props} />;
+
 export const Polygon = props => <RoughConsumer type="polygon" {...props} />;
 
 
