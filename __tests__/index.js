@@ -190,7 +190,6 @@ describe('ReactRough', () => {
 					/>
 				</ReactRough>
 			);
-			wrapper.instance().redraw();
 
 			expect(wrapper).toMatchSnapshot();
 		});
@@ -206,7 +205,6 @@ describe('ReactRough', () => {
 						/>
 					</ReactRough>
 				);
-				wrapper.instance().redraw();
 			}).toThrowError('You need a dataString property for path, not points');
 		});
 	});

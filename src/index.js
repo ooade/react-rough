@@ -99,9 +99,9 @@ class ReactRough extends React.Component {
 
 	componentDidMount() {
 		this.ctx = this.canvasRef.current.getContext('2d');
-		// First render canvas clear
-		this.clearCanvas();
 		this.rc = Rough.canvas(this.canvasRef.current);
+		// Force a render now that we have the canvas
+		this.forceUpdate();
 
 	}
 
@@ -124,7 +124,7 @@ class ReactRough extends React.Component {
 	}
 
 	redraw() {
-		this.forceUpdate()
+		this.forceUpdate();
 	}
 
 	render() {
