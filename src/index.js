@@ -3,7 +3,6 @@ import Proptypes from 'prop-types';
 import Rough from 'roughjs';
 
 const RoughContext = React.createContext();
-const CanvasRef = React.createRef();
 
 const __VALID_KEYS__ = [
 	'bowing',
@@ -58,6 +57,8 @@ export const RoughConsumer = ({ type, dataString, points, ...data }) => (
 );
 
 class ReactRough extends React.Component {
+	canvasRef = React.createRef();
+
 	static Arc = props => {
 		return <RoughConsumer type="arc" {...props} />;
 	};
@@ -94,34 +95,20 @@ class ReactRough extends React.Component {
 		return <RoughConsumer type="rectangle" {...props} />;
 	};
 
-	state = {
-		rcValid: false
-	};
-
-	shouldComponentUpdate(_, nextState) {
-		if (nextState.rcValid && !this.state.rcValid) {
-			return true;
-		}
-
-		return false;
-	}
-
 	componentDidMount() {
-		const rc = Rough.canvas(CanvasRef.current);
+		const rc = Rough.canvas(this.canvasRef.current);
 		this.rc = rc;
 
-		if (!this.state.rcValid) {
-			this.setState({ rcValid: true });
-		}
+		this.forceUpdate();
 	}
 
 	render() {
-		const { width, height } = this.props;
+		const { width, height, children } = this.props;
 
 		return (
 			<RoughContext.Provider value={{ rc: this.rc }}>
-				<canvas width={width} height={height} ref={CanvasRef}>
-					{this.props.children}
+				<canvas width={width} height={height} ref={this.canvasRef}>
+					{children}
 				</canvas>
 			</RoughContext.Provider>
 		);

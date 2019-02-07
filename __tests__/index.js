@@ -1,6 +1,7 @@
 import React from 'react';
 import { configure, mount, render } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+
 import ReactRough from '../src';
 
 configure({ adapter: new Adapter() });
@@ -22,30 +23,6 @@ describe('ReactRough', () => {
 		it('should render properly', () => {
 			const wrapper = render(<ReactRough width={200} height={400} />);
 			expect(wrapper).toMatchSnapshot();
-		});
-
-		it('should render update once to change rcValid state', () => {
-			const wrapper = mount(
-				<ReactRough width={200} height={400}>
-					<ReactRough.Circle points={[50, 50, 80]} fill="red" />
-				</ReactRough>
-			);
-			const spy = jest.spyOn(ReactRough.prototype, 'shouldComponentUpdate');
-			wrapper
-				.instance()
-				.shouldComponentUpdate(wrapper.props(), wrapper.state());
-			expect(spy).toHaveBeenCalledTimes(1);
-		});
-
-		it('should change rcValid state on componentDidMount', () => {
-			const wrapper = mount(
-				<ReactRough width={200} height={400}>
-					<ReactRough.Circle points={[50, 50, 80]} fill="red" />
-				</ReactRough>
-			);
-			jest.spyOn(ReactRough.prototype, 'componentDidMount');
-			wrapper.instance().componentDidMount();
-			expect(wrapper.state('rcValid')).toBe(true);
 		});
 
 		it('should render properly with children', () => {
