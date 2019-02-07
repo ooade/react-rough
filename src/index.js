@@ -29,8 +29,8 @@ export class NodeMounter extends React.Component {
 		this.ref.current.appendChild(node);
 	}
 
-	componentDidUpdate({node: prevNode}) {
-		const {node} = this.props;
+	componentDidUpdate({ node: prevNode }) {
+		const { node } = this.props;
 		this.ref.current.removeChild(prevNode);
 		this.ref.current.appendChild(node);
 	}
@@ -61,7 +61,7 @@ export const RoughConsumer = ({ type, dataString, points, ...data }) => (
 					);
 				}
 			}
-			let node = null
+			let node = null;
 			if (contextValue.rc) {
 				if (type === 'path') {
 					if (typeof points !== 'undefined') {
@@ -74,7 +74,9 @@ export const RoughConsumer = ({ type, dataString, points, ...data }) => (
 				} else {
 					node = contextValue.rc[type](...points, data);
 				}
-				return contextValue.renderer === 'svg' ? <NodeMounter node={node} /> : null;
+				return contextValue.renderer === 'svg' ? (
+					<NodeMounter node={node} />
+				) : null;
 			}
 
 			return null;
@@ -111,8 +113,9 @@ class ReactRough extends React.Component {
 	}
 
 	componentDidMount() {
-		const { renderer } = this.props
-		this.ctx = renderer == 'canvas' && this.rendererRef.current.getContext('2d');
+		const { renderer } = this.props;
+		this.ctx =
+			renderer == 'canvas' && this.rendererRef.current.getContext('2d');
 		this.rc = Rough[renderer](this.rendererRef.current);
 		// Force a render now that we have the canvas
 		this.forceUpdate();
@@ -142,20 +145,21 @@ class ReactRough extends React.Component {
 
 	render() {
 		const { width, height, renderer, backgroundColor } = this.props;
-		let children = this.props.children
+		let children = this.props.children;
 
 		const rendererOptions = {
-			width, height
-		}
+			width,
+			height
+		};
 
 		// First clear the canvas in case of a new render
 		if (renderer === 'canvas') {
 			this.clearCanvas();
 		} else {
-			rendererOptions.style = {backgroundColor}
+			rendererOptions.style = { backgroundColor };
 		}
 
-		const Renderer = renderer
+		const Renderer = renderer;
 
 		return (
 			<RoughContext.Provider value={{ rc: this.rc, renderer }}>
