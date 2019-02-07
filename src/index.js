@@ -57,6 +57,8 @@ export const RoughConsumer = ({ type, dataString, points, ...data }) => (
 );
 
 class ReactRough extends React.Component {
+	canvasRef = React.createRef();
+
 	static Arc = props => {
 		return <RoughConsumer type="arc" {...props} />;
 	};
@@ -95,7 +97,6 @@ class ReactRough extends React.Component {
 
 	constructor(props) {
 		super(props);
-		this.canvasRef = React.createRef();
 		this.rc = null;
 		this.ctx = null;
 	}

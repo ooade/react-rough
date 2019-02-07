@@ -49,7 +49,7 @@ render(
 	<ReactRough width={200} height={400}>
 		<ReactRough.Circle points={[50, 50, 80]} fill="red" />
 		<ReactRough.Polygon
-			points={[[690, 130], [790, 140], [750, 240], [690, 220]]}
+			points={[[[690, 130], [790, 140], [750, 240], [690, 220]]]}
 			fill="blue"
 			stroke="green"
 		/>

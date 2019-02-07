@@ -1,6 +1,7 @@
 import React from 'react';
 import { configure, mount, render } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+
 import ReactRough from '../src';
 
 configure({ adapter: new Adapter() });
