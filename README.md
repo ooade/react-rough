@@ -31,7 +31,7 @@ const options = {
 
 render(
 	<ReactRough width={220} height={220}>
-		<ReactRough.Rectangle options={options} />
+		<Rectangle options={options} />
 	</ReactRough>
 );
 ```
@@ -47,8 +47,8 @@ import { ReactRough, Rectangle, Circle } from 'react-rough';
 
 render(
 	<ReactRough width={200} height={400}>
-		<ReactRough.Circle points={[50, 50, 80]} fill="red" />
-		<ReactRough.Polygon
+		<Circle points={[50, 50, 80]} fill="red" />
+		<Polygon
 			points={[[[690, 130], [790, 140], [750, 240], [690, 220]]]}
 			fill="blue"
 			stroke="green"

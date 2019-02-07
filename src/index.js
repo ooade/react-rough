@@ -68,10 +68,11 @@ export const Line = props => <RoughConsumer type="line" {...props} />;
 
 export const Path = props => <RoughConsumer type="path" {...props} />;
 
-export const LinearPath = props => <RoughConsumer type="linearPath" {...props} />;
+export const LinearPath = props => (
+	<RoughConsumer type="linearPath" {...props} />
+);
 
 export const Polygon = props => <RoughConsumer type="polygon" {...props} />;
-
 
 export const Rectangle = props => <RoughConsumer type="rectangle" {...props} />;
 
@@ -89,7 +90,6 @@ class ReactRough extends React.Component {
 		this.rc = Rough.canvas(this.canvasRef.current);
 		// Force a render now that we have the canvas
 		this.forceUpdate();
-
 	}
 
 	clearCanvas() {
@@ -97,7 +97,7 @@ class ReactRough extends React.Component {
 		// If this is the first render the ctx will be null
 		// It will be cleared later on componentDidMount
 		if (!this.ctx) {
-			return
+			return;
 		}
 
 		if (backgroundColor) {
