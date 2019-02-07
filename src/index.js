@@ -79,6 +79,10 @@ class ReactRough extends React.Component {
 		return <RoughConsumer type="line" {...props} />;
 	};
 
+	static LinearPath = props => {
+		return <RoughConsumer type="linearPath" {...props} />;
+	};
+
 	static Path = props => {
 		return <RoughConsumer type="path" {...props} />;
 	};

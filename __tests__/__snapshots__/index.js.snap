@@ -397,6 +397,69 @@ exports[`ReactRough Line should render properly with props 1`] = `
 </ReactRough>
 `;
 
+exports[`ReactRough LinearPath should render properly with props 1`] = `
+<ReactRough
+  height={400}
+  width={200}
+>
+  <canvas
+    height={400}
+    width={200}
+  >
+    <Component
+      fill="blue"
+      points={
+        Array [
+          Array [
+            690,
+            130,
+          ],
+          Array [
+            790,
+            140,
+          ],
+          Array [
+            750,
+            240,
+          ],
+          Array [
+            690,
+            220,
+          ],
+        ]
+      }
+      stroke="red"
+    >
+      <RoughConsumer
+        fill="blue"
+        points={
+          Array [
+            Array [
+              690,
+              130,
+            ],
+            Array [
+              790,
+              140,
+            ],
+            Array [
+              750,
+              240,
+            ],
+            Array [
+              690,
+              220,
+            ],
+          ]
+        }
+        stroke="red"
+        type="linearPath"
+      />
+    </Component>
+  </canvas>
+</ReactRough>
+`;
+
 exports[`ReactRough Path should render properly with props 1`] = `
 <ReactRough
   height={400}
