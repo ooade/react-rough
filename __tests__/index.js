@@ -35,6 +35,44 @@ describe('ReactRough', () => {
 			expect(wrapper).toMatchSnapshot();
 		});
 
+		it('should clear the canvas on first render', () => {
+			const spy = jest.spyOn(ReactRough.prototype, 'clearCanvas');
+			const wrapper = mount(
+				<ReactRough width={200} height={400}>
+					<ReactRough.Circle points={[50, 50, 80]} fill="red" />
+				</ReactRough>
+			);
+			expect(wrapper.instance().ctx).not.toBeNull()
+			expect(spy).toHaveBeenCalledTimes(2);
+			spy.mockRestore();
+		});
+
+		it('should clear the canvas on redraw', () => {
+			const spy = jest.spyOn(ReactRough.prototype, 'clearCanvas');
+			const wrapper = mount(
+				<ReactRough width={200} height={400}>
+					<ReactRough.Circle points={[50, 50, 80]} fill="red" />
+				</ReactRough>
+			);
+			expect(spy).toHaveBeenCalledTimes(2);
+			wrapper.instance().redraw();
+			expect(spy).toHaveBeenCalledTimes(3);
+			spy.mockRestore();
+		});
+
+		it('should use backgroundColor as canvas background color', () => {
+			const wrapper = mount(
+				<ReactRough
+					width={200}
+					height={400}
+					backgroundColor="rgba(126, 255, 0, 0.1)"
+				>
+					<ReactRough.Circle points={[50, 50, 80]} fill="red" />
+				</ReactRough>
+			);
+			expect(wrapper).toMatchSnapshot();
+		});
+
 		it('should render properly with children', () => {
 			const wrapper = mount(
 				<ReactRough width={200} height={400}>

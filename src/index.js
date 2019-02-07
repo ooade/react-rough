@@ -78,15 +78,47 @@ export const Rectangle = props => <RoughConsumer type="rectangle" {...props} />;
 class ReactRough extends React.Component {
 	canvasRef = React.createRef();
 
-	componentDidMount() {
-		const rc = Rough.canvas(this.canvasRef.current);
-		this.rc = rc;
+	constructor(props) {
+		super(props);
+		this.rc = null;
+		this.ctx = null;
+	}
 
+	componentDidMount() {
+		this.ctx = this.canvasRef.current.getContext('2d');
+		this.rc = Rough.canvas(this.canvasRef.current);
+		// Force a render now that we have the canvas
+		this.forceUpdate();
+
+	}
+
+	clearCanvas() {
+		const { backgroundColor, width, height } = this.props;
+		// If this is the first render the ctx will be null
+		// It will be cleared later on componentDidMount
+		if (!this.ctx) {
+			return
+		}
+
+		if (backgroundColor) {
+			this.ctx.save();
+			this.ctx.fillStyle = backgroundColor;
+			this.ctx.fillRect(0, 0, width, height);
+			this.ctx.restore();
+		} else {
+			this.ctx.clearRect(0, 0, width, height);
+		}
+	}
+
+	redraw() {
 		this.forceUpdate();
 	}
 
 	render() {
 		const { width, height, children } = this.props;
+
+		// First clear the canvas in case of a new render
+		this.clearCanvas();
 
 		return (
 			<RoughContext.Provider value={{ rc: this.rc }}>
