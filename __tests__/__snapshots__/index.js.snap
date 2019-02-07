@@ -9,7 +9,7 @@ exports[`ReactRough Arc should render properly with props 1`] = `
     height={400}
     width={200}
   >
-    <Component
+    <Arc
       fill="red"
       points={
         Array [
@@ -30,7 +30,7 @@ exports[`ReactRough Arc should render properly with props 1`] = `
         }
         type="arc"
       />
-    </Component>
+    </Arc>
   </canvas>
 </ReactRough>
 `;
@@ -44,7 +44,7 @@ exports[`ReactRough Circle should render properly with props 1`] = `
     height={400}
     width={200}
   >
-    <Component
+    <Circle
       fill="red"
       points={
         Array [
@@ -65,7 +65,7 @@ exports[`ReactRough Circle should render properly with props 1`] = `
         }
         type="circle"
       />
-    </Component>
+    </Circle>
   </canvas>
 </ReactRough>
 `;
@@ -104,7 +104,7 @@ exports[`ReactRough Core should render properly with children 1`] = `
     height={400}
     width={200}
   >
-    <Component
+    <Circle
       fill="red"
       points={
         Array [
@@ -125,7 +125,7 @@ exports[`ReactRough Core should render properly with children 1`] = `
         }
         type="circle"
       />
-    </Component>
+    </Circle>
   </canvas>
 </ReactRough>
 `;
@@ -139,7 +139,7 @@ exports[`ReactRough Curve should render properly with props 1`] = `
     height={400}
     width={200}
   >
-    <Component
+    <Curve
       fill="red"
       points={
         Array [
@@ -314,7 +314,7 @@ exports[`ReactRough Curve should render properly with props 1`] = `
         }
         type="curve"
       />
-    </Component>
+    </Curve>
   </canvas>
 </ReactRough>
 `;
@@ -328,7 +328,7 @@ exports[`ReactRough Ellipse should render properly with props 1`] = `
     height={400}
     width={200}
   >
-    <Component
+    <Ellipse
       fill="blue"
       points={
         Array [
@@ -353,7 +353,7 @@ exports[`ReactRough Ellipse should render properly with props 1`] = `
         stroke="red"
         type="ellipse"
       />
-    </Component>
+    </Ellipse>
   </canvas>
 </ReactRough>
 `;
@@ -367,7 +367,7 @@ exports[`ReactRough Line should render properly with props 1`] = `
     height={400}
     width={200}
   >
-    <Component
+    <Line
       fill="blue"
       points={
         Array [
@@ -392,7 +392,7 @@ exports[`ReactRough Line should render properly with props 1`] = `
         stroke="red"
         type="line"
       />
-    </Component>
+    </Line>
   </canvas>
 </ReactRough>
 `;
@@ -406,7 +406,7 @@ exports[`ReactRough Path should render properly with props 1`] = `
     height={400}
     width={200}
   >
-    <Component
+    <Path
       dataString="M80 80 A 45 45, 0, 0, 0, 125 125 L 125 80 Z"
       fill="blue"
       stroke="red"
@@ -417,7 +417,7 @@ exports[`ReactRough Path should render properly with props 1`] = `
         stroke="red"
         type="path"
       />
-    </Component>
+    </Path>
   </canvas>
 </ReactRough>
 `;
@@ -431,7 +431,7 @@ exports[`ReactRough Polygon should render properly with props 1`] = `
     height={400}
     width={200}
   >
-    <Component
+    <Polygon
       fill="blue"
       points={
         Array [
@@ -480,7 +480,7 @@ exports[`ReactRough Polygon should render properly with props 1`] = `
         stroke="red"
         type="polygon"
       />
-    </Component>
+    </Polygon>
   </canvas>
 </ReactRough>
 `;
@@ -494,7 +494,7 @@ exports[`ReactRough Rectangle should render properly with props 1`] = `
     height={400}
     width={200}
   >
-    <Component
+    <Rectangle
       fill="blue"
       points={
         Array [
@@ -519,7 +519,7 @@ exports[`ReactRough Rectangle should render properly with props 1`] = `
         stroke="red"
         type="rectangle"
       />
-    </Component>
+    </Rectangle>
   </canvas>
 </ReactRough>
 `;
