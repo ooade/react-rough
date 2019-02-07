@@ -2,7 +2,17 @@ import React from 'react';
 import { configure, mount, render } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import ReactRough from '../src';
+import ReactRough, {
+	Arc,
+	Circle,
+	Curve,
+	Ellipse,
+	Line,
+	LinearPath,
+	Path,
+	Polygon,
+	Rectangle
+} from '../src';
 
 configure({ adapter: new Adapter() });
 
@@ -28,7 +38,7 @@ describe('ReactRough', () => {
 		it('should render properly with children', () => {
 			const wrapper = mount(
 				<ReactRough width={200} height={400}>
-					<ReactRough.Circle points={[50, 50, 80]} fill="red" />
+					<Circle points={[50, 50, 80]} fill="red" />
 				</ReactRough>
 			);
 			expect(wrapper).toMatchSnapshot();
@@ -40,7 +50,7 @@ describe('ReactRough', () => {
 			const wrapper = mount(
 				<ReactRough width={200} height={400}>
 					<SomeComponent>
-						<ReactRough.Circle points={[50, 50, 80]} fill="red" />
+						<Circle points={[50, 50, 80]} fill="red" />
 					</SomeComponent>
 				</ReactRough>
 			);
@@ -49,7 +59,7 @@ describe('ReactRough', () => {
 
 		it('should throw an error if the Provider component isnt found', () => {
 			expect(() =>
-				mount(<ReactRough.Circle points={[50, 50, 80]} fill="red" />)
+				mount(<Circle points={[50, 50, 80]} fill="red" />)
 			).toThrowError('ReactRough Component not found!');
 		});
 
@@ -57,7 +67,7 @@ describe('ReactRough', () => {
 			expect(() =>
 				mount(
 					<ReactRough width={200} height={400}>
-						<ReactRough.Circle points={[50, 50, 80]} fsill="red" />
+						<Circle points={[50, 50, 80]} fsill="red" />
 					</ReactRough>
 				)
 			).toThrowError('Invalid key "fsill" assigned to "circle component"');
@@ -68,7 +78,7 @@ describe('ReactRough', () => {
 		it('should render properly with props', () => {
 			const wrapper = mount(
 				<ReactRough width={200} height={400}>
-					<ReactRough.Arc points={[50, 50, 80]} fill="red" />
+					<Arc points={[50, 50, 80]} fill="red" />
 				</ReactRough>
 			);
 
@@ -80,7 +90,7 @@ describe('ReactRough', () => {
 		it('should render properly with props', () => {
 			const wrapper = mount(
 				<ReactRough width={200} height={400}>
-					<ReactRough.Circle points={[50, 50, 80]} fill="red" />
+					<Circle points={[50, 50, 80]} fill="red" />
 				</ReactRough>
 			);
 
@@ -101,7 +111,7 @@ describe('ReactRough', () => {
 
 			const wrapper = mount(
 				<ReactRough width={200} height={400}>
-					<ReactRough.Curve points={points} fill="red" />
+					<Curve points={points} fill="red" />
 				</ReactRough>
 			);
 
@@ -113,11 +123,7 @@ describe('ReactRough', () => {
 		it('should render properly with props', () => {
 			const wrapper = mount(
 				<ReactRough width={200} height={400}>
-					<ReactRough.Ellipse
-						points={[10, 50, 150, 80]}
-						fill="blue"
-						stroke="red"
-					/>
+					<Ellipse points={[10, 50, 150, 80]} fill="blue" stroke="red" />
 				</ReactRough>
 			);
 
@@ -129,11 +135,7 @@ describe('ReactRough', () => {
 		it('should render properly with props', () => {
 			const wrapper = mount(
 				<ReactRough width={200} height={400}>
-					<ReactRough.Line
-						points={[60, 60, 190, 60]}
-						fill="blue"
-						stroke="red"
-					/>
+					<Line points={[60, 60, 190, 60]} fill="blue" stroke="red" />
 				</ReactRough>
 			);
 
@@ -145,7 +147,7 @@ describe('ReactRough', () => {
 		it('should render properly with props', () => {
 			const wrapper = mount(
 				<ReactRough width={200} height={400}>
-					<ReactRough.Path
+					<Path
 						dataString="M80 80 A 45 45, 0, 0, 0, 125 125 L 125 80 Z"
 						fill="blue"
 						stroke="red"
@@ -160,7 +162,7 @@ describe('ReactRough', () => {
 			expect(() => {
 				mount(
 					<ReactRough width={200} height={400}>
-						<ReactRough.Path
+						<Path
 							points="M80 80 A 45 45, 0, 0, 0, 125 125 L 125 80 Z"
 							fill="blue"
 							stroke="red"
@@ -175,7 +177,7 @@ describe('ReactRough', () => {
 		it('should render properly with props', () => {
 			const wrapper = mount(
 				<ReactRough width={200} height={400}>
-					<ReactRough.Polygon
+					<Polygon
 						points={[[690, 130], [790, 140], [750, 240], [690, 220]]}
 						fill="blue"
 						stroke="red"
@@ -191,11 +193,7 @@ describe('ReactRough', () => {
 		it('should render properly with props', () => {
 			const wrapper = mount(
 				<ReactRough width={200} height={400}>
-					<ReactRough.Rectangle
-						points={[10, 10, 100, 100]}
-						fill="blue"
-						stroke="red"
-					/>
+					<Rectangle points={[10, 10, 100, 100]} fill="blue" stroke="red" />
 				</ReactRough>
 			);
 
@@ -207,7 +205,7 @@ describe('ReactRough', () => {
 		it('should render properly with props', () => {
 			const wrapper = mount(
 				<ReactRough width={200} height={400}>
-					<ReactRough.LinearPath
+					<LinearPath
 						points={[[690, 130], [790, 140], [750, 240], [690, 220]]}
 						fill="blue"
 						stroke="red"

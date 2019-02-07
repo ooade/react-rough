@@ -56,44 +56,27 @@ export const RoughConsumer = ({ type, dataString, points, ...data }) => (
 	</RoughContext.Consumer>
 );
 
+export const Arc = props => <RoughConsumer type="arc" {...props} />;
+
+export const Circle = props => <RoughConsumer type="circle" {...props} />;
+
+export const Curve = props => <RoughConsumer type="curve" {...props} />;
+
+export const Ellipse = props => <RoughConsumer type="ellipse" {...props} />;
+
+export const Line = props => <RoughConsumer type="line" {...props} />;
+
+export const Path = props => <RoughConsumer type="path" {...props} />;
+
+export const LinearPath = props => <RoughConsumer type="linearPath" {...props} />;
+
+export const Polygon = props => <RoughConsumer type="polygon" {...props} />;
+
+
+export const Rectangle = props => <RoughConsumer type="rectangle" {...props} />;
+
 class ReactRough extends React.Component {
 	canvasRef = React.createRef();
-
-	static Arc = props => {
-		return <RoughConsumer type="arc" {...props} />;
-	};
-
-	static Circle = props => {
-		return <RoughConsumer type="circle" {...props} />;
-	};
-
-	static Curve = props => {
-		return <RoughConsumer type="curve" {...props} />;
-	};
-
-	static Ellipse = props => {
-		return <RoughConsumer type="ellipse" {...props} />;
-	};
-
-	static Line = props => {
-		return <RoughConsumer type="line" {...props} />;
-	};
-
-	static LinearPath = props => {
-		return <RoughConsumer type="linearPath" {...props} />;
-	};
-
-	static Path = props => {
-		return <RoughConsumer type="path" {...props} />;
-	};
-
-	static Polygon = props => {
-		return <RoughConsumer type="polygon" {...props} />;
-	};
-
-	static Rectangle = props => {
-		return <RoughConsumer type="rectangle" {...props} />;
-	};
 
 	componentDidMount() {
 		const rc = Rough.canvas(this.canvasRef.current);
