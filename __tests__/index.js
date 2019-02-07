@@ -36,8 +36,8 @@ describe('ReactRough', () => {
 			expect(wrapper).toMatchSnapshot();
 		});
 
-		it('should render properly with svg backend', () => {
-			const wrapper = render(<ReactRough width={200} height={400} backend="svg" />);
+		it('should render properly with svg renderer', () => {
+			const wrapper = render(<ReactRough width={200} height={400} renderer="svg" />);
 			expect(wrapper).toMatchSnapshot();
 		});
 
@@ -85,7 +85,7 @@ describe('ReactRough', () => {
 					width={200}
 					height={400}
 					backgroundColor="rgba(126, 255, 0, 0.1)"
-					backend="svg"
+					renderer="svg"
 				/>
 			);
 			expect(wrapper).toMatchSnapshot();
@@ -134,7 +134,7 @@ describe('ReactRough', () => {
 			const cDUspy = jest.spyOn(NodeMounter.prototype, 'componentDidUpdate');
 			const cWUspy = jest.spyOn(NodeMounter.prototype, 'componentWillUnmount');
 			const wrapper = mount(
-				<ReactRough width={200} height={400} backend="svg">
+				<ReactRough width={200} height={400} renderer="svg">
 					<Circle points={[50, 50, 80]} fill="red" />
 				</ReactRough>
 			);
