@@ -130,6 +130,42 @@ exports[`ReactRough Core should render properly with children 1`] = `
 </ReactRough>
 `;
 
+exports[`ReactRough Core should use backgroundColor as canvas background color 1`] = `
+<ReactRough
+  backgroundColor="rgba(126, 255, 0, 0.1)"
+  height={400}
+  width={200}
+>
+  <canvas
+    height={400}
+    width={200}
+  >
+    <Component
+      fill="red"
+      points={
+        Array [
+          50,
+          50,
+          80,
+        ]
+      }
+    >
+      <RoughConsumer
+        fill="red"
+        points={
+          Array [
+            50,
+            50,
+            80,
+          ]
+        }
+        type="circle"
+      />
+    </Component>
+  </canvas>
+</ReactRough>
+`;
+
 exports[`ReactRough Curve should render properly with props 1`] = `
 <ReactRough
   height={400}

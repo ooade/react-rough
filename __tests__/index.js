@@ -50,6 +50,19 @@ describe('ReactRough', () => {
 			spy.mockRestore();
 		});
 
+		it('should use backgroundColor as canvas background color', () => {
+			const wrapper = mount(
+				<ReactRough
+					width={200}
+					height={400}
+					backgroundColor="rgba(126, 255, 0, 0.1)"
+				>
+					<ReactRough.Circle points={[50, 50, 80]} fill="red" />
+				</ReactRough>
+			);
+			expect(wrapper).toMatchSnapshot();
+		});
+
 		it('should render properly with children', () => {
 			const wrapper = mount(
 				<ReactRough width={200} height={400}>
@@ -177,13 +190,14 @@ describe('ReactRough', () => {
 					/>
 				</ReactRough>
 			);
+			wrapper.instance().redraw();
 
 			expect(wrapper).toMatchSnapshot();
 		});
 
 		it('should throw error when points is used', () => {
 			expect(() => {
-				mount(
+				const wrapper = mount(
 					<ReactRough width={200} height={400}>
 						<ReactRough.Path
 							points="M80 80 A 45 45, 0, 0, 0, 125 125 L 125 80 Z"
@@ -192,6 +206,7 @@ describe('ReactRough', () => {
 						/>
 					</ReactRough>
 				);
+				wrapper.instance().redraw();
 			}).toThrowError('You need a dataString property for path, not points');
 		});
 	});
