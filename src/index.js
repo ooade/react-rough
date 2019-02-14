@@ -5,7 +5,6 @@ const RoughContext = React.createContext();
 
 const __VALID_KEYS__ = [
 	'bowing',
-	'dataString',
 	'fill',
 	'fillStyle',
 	'fillWeight',
