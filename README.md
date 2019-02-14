@@ -18,7 +18,7 @@
 - npm add roughjs
 ```
 
-`Note: The documentation is for the beta release. For the stable release check out the master branch`
+`Note: The documentation is for the beta release. For the stable release check out the [master branch](https://github.com/ooade/react-rough/tree/master)`
 
 ### Render a Rectangle
 
