@@ -1,6 +1,6 @@
 {
 	"name": "react-rough",
-	"version": "2.0.0-beta.0",
+	"version": "2.0.0-beta.1",
 	"description": "React Bindings for Rough.js",
 	"main": "dist/react-rough.js",
 	"module": "dist/react-rough.es.js",
