@@ -1,5 +1,5 @@
 import React from 'react';
-import Rough from 'roughjs';
+import Rough from 'roughjs/dist/rough.umd';
 
 const RoughContext = React.createContext();
 
@@ -44,7 +44,7 @@ export class NodeMounter extends React.Component {
 	}
 }
 
-export const RoughConsumer = ({ type, dataString, points, ...data }) => (
+const RoughConsumer = ({ type, dataString, points, ...data }) => (
 	<RoughContext.Consumer>
 		{contextValue => {
 			if (typeof contextValue === 'undefined') {
