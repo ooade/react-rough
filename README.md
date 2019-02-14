@@ -15,28 +15,24 @@
 
 ```sh
 - npm add react-rough
-- npm add roughjs@2.0.0
+- npm add roughjs
 ```
+
+`Note: The documentation is for the beta release. For the stable release check out the master branch`
 
 ### Render a Rectangle
 
 ```js
-import ReactRough from 'react-rough';
-
-const options = {
-	points: [10, 10, 200, 200], // x, y, width, height
-	fill: 'red',
-	fillWeight: 3
-};
+import ReactRough, { Rectangle } from 'react-rough';
 
 render(
 	<ReactRough width={220} height={220}>
-		<Rectangle options={options} />
+		<Rectangle points={[10, 10, 200, 200]} fill="red" fillWeight={3} />
 	</ReactRough>
 );
 ```
 
-`Note: A Static Method must be nested within a ReactRough Component, it could have other surrounding elements, but it's GrandParent must be a Rough Component`
+`Note: All shapes must be nested within a ReactRough Component, it could have other surrounding elements, but it's GrandParent must be a ReactRough Component`
 
 When you grab a shape from ReactRough, it renders each shape to a canvas element. So how can we render different shapes on a single canvas element? We'll answer that below.
 
