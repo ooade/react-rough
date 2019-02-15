@@ -59,7 +59,9 @@
 		"react-dom": "^16.8.1",
 		"roughjs": "3.0.0"
 	},
-	"dependencies": {},
+	"dependencies": {
+		"use-force-update": "^1.0.2"
+	},
 	"jest": {
 		"setupFilesAfterEnv": [
 			"./node_modules/jest-enzyme/lib/index.js",
