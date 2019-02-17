@@ -24,7 +24,7 @@ export const NodeMounter = props => {
     ref.appendChild(node);
 
     useEffect(() => {
-        // const { node } = props;
+        //Perhaps there's something fishy here ?
         ref.current.removeChild(node);
         ref.current.appendChild(node);
 
@@ -32,7 +32,7 @@ export const NodeMounter = props => {
             const { node } = props;
             ref.current.removeChild(node);
         }
-    });
+    }, []);
     return <g ref={ref} />;
 };
 
@@ -97,13 +97,16 @@ export const Polygon = props => <RoughConsumer type="polygon" {...props} />;
 
 export const Rectangle = props => <RoughConsumer type="rectangle" {...props} />;
 
-const ReactRough = (props, rc, ctx, rendererRef)  => {
+const ReactRough = props => {
 
     const { renderer, width, height, backgroundColor } = props;
 
+
     const forceUpdate = useForceUpdate();
 
-    rendererRef = useRef();
+    let ctx, rc;
+
+    let rendererRef = useRef('');
 
     useEffect(() => {
         const { renderer } = props;
@@ -135,7 +138,7 @@ const ReactRough = (props, rc, ctx, rendererRef)  => {
 
     const redraw = () => forceUpdate();
 
-    // let children = props.children;
+    let children = props.children;
 
 
     const rendererOptions = {
@@ -152,14 +155,14 @@ const ReactRough = (props, rc, ctx, rendererRef)  => {
 
     const Renderer = renderer;
 
-    return (
-        <RoughContext.Provider value={{ rc: rc, renderer}}>
+
+    return(
+        <RoughContext.Provider value={{ rc: rc, renderer }}>
             <Renderer {...rendererOptions} ref={rendererRef}>
-                {props.children}
+                {children}
             </Renderer>
         </RoughContext.Provider>
     );
-
 };
 
 // class ReactRough extends React.Component {
