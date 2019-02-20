@@ -1,6 +1,5 @@
-import React, {useEffect, useRef } from 'react';
+import React, {useState, useEffect, useRef } from 'react';
 import Rough from 'roughjs/dist/rough.umd';
-import useForceUpdate from 'use-force-update';
 
 const RoughContext = React.createContext();
 
@@ -101,6 +100,7 @@ const ReactRough = props => {
 
     const { renderer, width, height, backgroundColor } = props;
 
+    const useForceUpdate = () => useState()[1];
 
     const forceUpdate = useForceUpdate();
 
@@ -113,7 +113,7 @@ const ReactRough = props => {
         ctx =
             renderer === 'canvas' && rendererRef.current.getContext('2d');
         rc = Rough[renderer](rendererRef.current);
-        // TODO: this.forceUpdate();
+
         forceUpdate();
     }, []);
 
