@@ -40,9 +40,11 @@
 		"eslint-plugin-import": "^2.16.0",
 		"eslint-plugin-jsx-a11y": "^6.2.1",
 		"eslint-plugin-react": "^7.12.4",
+		"ghooks": "^2.0.4",
 		"jest": "^24.1.0",
 		"jest-canvas-mock": "^2.0.0-alpha.3",
 		"jest-enzyme": "^7.0.1",
+		"prettier": "1.16.4",
 		"react": "^16.8.1",
 		"react-dom": "^16.8.1",
 		"react-testing-library": "^5.8.0",
@@ -58,6 +60,11 @@
 		"roughjs": "3.0.0"
 	},
 	"dependencies": {},
+	"config": {
+		"ghooks": {
+			"pre-commit": "npm run prettier"
+		}
+	},
 	"jest": {
 		"setupFilesAfterEnv": [
 			"./node_modules/jest-enzyme/lib/index.js",
