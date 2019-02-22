@@ -1,20 +1,19 @@
 {
 	"name": "react-rough",
-	"version": "2.0.0-beta.4",
+	"version": "2.0.0-beta.12",
 	"description": "React Bindings for Rough.js",
 	"main": "dist/react-rough.js",
 	"module": "dist/react-rough.es.js",
 	"umd": "dist/react-rough.umd.js",
 	"scripts": {
 		"test": "jest",
+		"test:watch": "jest --watch",
 		"lint": "eslint src/*",
 		"coverage": "jest --coverage",
-		"build": "npm-run-all rollup minify:*",
+		"build": "npm-run-all rollup",
 		"rollup": "rollup -c rollup.config.js",
 		"report-coverage": "cat ./coverage/lcov.info | codecov",
 		"prepublish": "npm run build",
-		"minify:cjs": "uglifyjs $npm_package_main -cm -o $npm_package_main --source-map",
-		"minify:umd": "uglifyjs $npm_package_umd -cm toplevel -o $npm_package_umd --source-map",
 		"prettier": "prettier --write '{src,__tests__}/*.js'"
 	},
 	"files": [
@@ -51,8 +50,9 @@
 		"react-testing-library": "^5.8.0",
 		"rollup": "^1.1.2",
 		"rollup-plugin-babel": "^4.3.2",
-		"roughjs": "3.0.0",
-		"uglifyjs": "^2.4.11"
+		"rollup-plugin-replace": "^2.1.0",
+		"rollup-plugin-terser": "^4.0.4",
+		"roughjs": "3.0.0"
 	},
 	"peerDependencies": {
 		"react": "^16.8.1",

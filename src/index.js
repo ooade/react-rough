@@ -1,5 +1,5 @@
 import React from 'react';
-import Rough from 'roughjs/dist/rough.umd';
+import Rough from 'roughjs';
 
 const RoughContext = React.createContext();
 
