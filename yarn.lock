@@ -5263,10 +5263,10 @@ rollup@^1.1.2:
     "@types/node" "*"
     acorn "^6.0.5"
 
-roughjs@3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/roughjs/-/roughjs-3.0.0.tgz#bcf0dee35abc43fb7de271be7f47b0f982a8e2a9"
-  integrity sha512-9iIg0md+9IVubiJP3nAuKy8sRS68KXCY9Bwx7Xo08s2MPM3UgXhkuqItNv4GLztuUqloBI7fgVGKJlE9QhrP8g==
+roughjs@3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/roughjs/-/roughjs-3.1.0.tgz#d011b9239fd1790e487bbfa204c98f1c786966ac"
+  integrity sha512-WJIKyWxBlEIuMeK0foUZD1KVYzT6Dn62ksawZrlu3BzxUxgtPdnlCMDgX/C3N5gxj/AMRazstKOFm70tqTo5Bw==
   dependencies:
     workly "^1.2.0"
 
