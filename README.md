@@ -40,7 +40,7 @@ When you grab a shape from ReactRough, it renders each shape to a canvas element
 ### Render multiple shapes on one canvas element
 
 ```js
-import { ReactRough, Rectangle, Circle } from 'react-rough';
+import ReactRough, { Rectangle, Circle } from 'react-rough';
 
 render(
 	<ReactRough width={200} height={400}>
