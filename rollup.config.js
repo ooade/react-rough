@@ -1,44 +1,36 @@
+import fs from 'fs';
 import babel from 'rollup-plugin-babel';
-import replace from 'rollup-plugin-replace';
 import { terser } from 'rollup-plugin-terser';
 
-let pkg = require('./package.json');
+let pkg = JSON.parse(fs.readFileSync('./package.json', { encoding: 'utf-8' }));
 
 export default {
-	input: 'src/index.js',
-	external: ['react', 'roughjs/dist/rough.umd'],
+	input: 'build/index.js',
+	external: ['react', 'prop-types'],
 	plugins: [
 		babel({
 			exclude: 'node_modules/**'
 		}),
-		terser(),
-		replace({
-			exclude: 'node_modules/**',
-			roughjs: 'roughjs/dist/rough.umd'
-		})
+		terser()
 	],
 	output: [
 		{
 			file: pkg.main,
 			format: 'cjs',
-			sourcemap: true,
-			exports: 'named'
+			sourcemap: true
 		},
 		{
 			file: pkg.module,
 			format: 'es',
-			sourcemap: true,
-			exports: 'named'
+			sourcemap: true
 		},
 		{
 			name: 'react-rough',
 			file: pkg.umd,
 			format: 'umd',
 			sourcemap: true,
-			exports: 'named',
 			globals: {
-				react: 'react',
-				'roughjs/dist/rough.umd': 'roughjs'
+				react: 'react'
 			}
 		}
 	]

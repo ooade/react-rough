@@ -1,6 +1,5 @@
 node_modules
-dist
 coverage
-*.log
-.cache
-.vscode
+dist
+build
+*error.log
