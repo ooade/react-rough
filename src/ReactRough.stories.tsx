@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { number, text, array, color, boolean } from '@storybook/addon-knobs';
+import { number, color, boolean } from '@storybook/addon-knobs';
 import ReactRough, {
 	ReactRoughSvg,
 	Rectangle,
@@ -19,7 +19,7 @@ const stories = storiesOf('Basic Rough Renders', module);
 
 stories.add('Basic Canvas Rough Element', () => {
 	return (
-		<ReactRough>
+		<ReactRough width={number('parentWidth', 700)}>
 			<Rectangle
 				x={number('x', 15)}
 				y={number('y', 15)}
@@ -34,7 +34,7 @@ stories.add('Basic Canvas Rough Element', () => {
 stories.add('Basic Svg Rough Element', () => {
 	return (
 		<>
-			<ReactRoughSvg>
+			<ReactRoughSvg width={number('parentWidth', 700)}>
 				<Rectangle
 					x={number('x', 15)}
 					y={number('y', 15)}

@@ -11,14 +11,16 @@ interface RoughProps {
 	config?: Config;
 }
 
-type RoughCallback = (rc: RoughGenerator) => Drawable;
+type RoughCallback = (rc: RoughGenerator) => [Drawable, string];
 
 interface RoughContextProps {
 	render: (callback: RoughCallback) => void;
+	remove: (token: string) => void;
 }
 
 export const RoughContext = React.createContext<RoughContextProps>({
-	render: () => {}
+	render: () => {},
+	remove: () => {}
 });
 
 const ReactRoughCanvas: FC<RoughProps> = ({
@@ -29,19 +31,24 @@ const ReactRoughCanvas: FC<RoughProps> = ({
 }) => {
 	const canvasRef = React.createRef<HTMLCanvasElement>();
 	const roughCanvasRef = React.useRef<RoughCanvas>();
-	const nodes = React.useRef<Drawable[]>([]);
+	const nodes = React.useRef<{ [key: string]: Drawable }>({});
+
+	const remove = (token: string) => delete nodes.current[token];
 
 	const render = (callback: RoughCallback): void => {
+		if (!canvasRef.current) return;
 		if (canvasRef.current && !roughCanvasRef.current) {
 			roughCanvasRef.current = new RoughCanvas(canvasRef.current, config);
 		}
-		const elem = callback(roughCanvasRef.current!.generator);
-		nodes.current.push(elem);
+		const [node, token] = callback(roughCanvasRef.current!.generator);
+		nodes.current[token] = node;
 	};
 
 	useDeepCompareEffect(() => {
 		roughCanvasRef.current = new RoughCanvas(canvasRef.current!, config);
-		nodes.current.map(node => roughCanvasRef.current!.draw(node));
+		Object.values(nodes.current).forEach(node =>
+			roughCanvasRef.current!.draw(node)
+		);
 		const canvas = canvasRef.current;
 		return () => {
 			if (!canvas) return;
@@ -50,7 +57,7 @@ const ReactRoughCanvas: FC<RoughProps> = ({
 	}, [height, width, canvasRef, config]);
 
 	return (
-		<RoughContext.Provider value={{ render }}>
+		<RoughContext.Provider value={{ render, remove }}>
 			<canvas width={width} height={height} ref={canvasRef}>
 				{children}
 			</canvas>
@@ -66,6 +73,11 @@ export const ReactRoughSvg: FC<RoughProps> = ({
 }) => {
 	const svgRef = React.createRef<SVGSVGElement>();
 	const roughSvgRef = React.useRef<RoughSVG>();
+	const nodes = React.useRef<{ [key: string]: Drawable }>({});
+
+	const remove = (token: string) => {
+		delete nodes.current[token];
+	};
 
 	const render = (callback: RoughCallback): void => {
 		const svg = svgRef.current;
@@ -73,13 +85,23 @@ export const ReactRoughSvg: FC<RoughProps> = ({
 		if (svg && !roughSvgRef.current) {
 			roughSvgRef.current = new RoughSVG(svg, config);
 		}
-		const node = callback(roughSvgRef.current!.generator);
-		const g = roughSvgRef.current!.draw(node);
-		svg.appendChild(g);
+		const [node, token] = callback(roughSvgRef.current!.generator);
+		nodes.current[token] = node;
 	};
 
+	useDeepCompareEffect(() => {
+		const svg = svgRef.current;
+		if (!svg) return;
+		Object.values(nodes.current)
+			.map(s => roughSvgRef.current!.draw(s))
+			.map(svgEl => svg.appendChild(svgEl));
+		return () => {
+			svg.innerHTML = '';
+		};
+	}, [height, width, svgRef, config]);
+
 	return (
-		<RoughContext.Provider value={{ render }}>
+		<RoughContext.Provider value={{ render, remove }}>
 			<svg width={width} height={height} ref={svgRef}>
 				{children}
 			</svg>
