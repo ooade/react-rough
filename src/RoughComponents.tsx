@@ -6,11 +6,15 @@ import * as Props from './RoughComponentProps';
 
 export { Point } from 'roughjs/bin/geometry';
 
+const random = () => `${Math.round(Math.random() * 100000)}`.padEnd(7, '0');
+
 export const Line: FC<Props.LineProps> = ({ x1, y1, x2, y2, ...props }) => {
-	const { render } = useContext(RoughContext);
+	const { render, remove } = useContext(RoughContext);
+	const token = `line-${random()}`;
 
 	useDeepCompareEffect(() => {
-		render(rc => rc.line(x1, y1, x2, y2, props));
+		render(rc => [rc.line(x1, y1, x2, y2, props), token]);
+		return () => remove(token);
 	}, [x1, y1, x2, y2, props]);
 
 	return null;
@@ -24,10 +28,12 @@ export const Rectangle: FC<Props.RectangleProps> = ({
 	height,
 	...props
 }) => {
-	const { render } = useContext(RoughContext);
+	const { render, remove } = useContext(RoughContext);
+	const token = `rect-${random()}`;
 
 	useDeepCompareEffect(() => {
-		render(rc => rc.rectangle(x, y, width, height, props));
+		render(rc => [rc.rectangle(x, y, width, height, props), token]);
+		return () => remove(token);
 	}, [x, y, width, height, props]);
 
 	return null;
@@ -41,10 +47,12 @@ export const Ellipse: FC<Props.EllipseProps> = ({
 	height,
 	...props
 }) => {
-	const { render } = useContext(RoughContext);
+	const { render, remove } = useContext(RoughContext);
+	const token = `ellipse-${random()}`;
 
 	useDeepCompareEffect(() => {
-		render(rc => rc.ellipse(x, y, width, height, props));
+		render(rc => [rc.ellipse(x, y, width, height, props), token]);
+		return () => remove(token);
 	}, [x, y, width, height, props]);
 
 	return null;
@@ -52,10 +60,12 @@ export const Ellipse: FC<Props.EllipseProps> = ({
 Ellipse.displayName = 'Ellipse';
 
 export const Circle: FC<Props.CircleProps> = ({ x, y, diameter, ...props }) => {
-	const { render } = useContext(RoughContext);
+	const { render, remove } = useContext(RoughContext);
+	const token = `circle-${random()}`;
 
 	useDeepCompareEffect(() => {
-		render(rc => rc.circle(x, y, diameter, props));
+		render(rc => [rc.circle(x, y, diameter, props), token]);
+		return () => remove(token);
 	}, [x, y, diameter, props]);
 
 	return null;
@@ -63,10 +73,12 @@ export const Circle: FC<Props.CircleProps> = ({ x, y, diameter, ...props }) => {
 Circle.displayName = 'Circle';
 
 export const LinearPath: FC<Props.LinearPathProps> = ({ points, ...props }) => {
-	const { render } = useContext(RoughContext);
+	const { render, remove } = useContext(RoughContext);
+	const token = `linear-${random()}`;
 
 	useDeepCompareEffect(() => {
-		render(rc => rc.linearPath(points, props));
+		render(rc => [rc.linearPath(points, props), token]);
+		return () => remove(token);
 	}, [points, props]);
 
 	return null;
@@ -74,10 +86,12 @@ export const LinearPath: FC<Props.LinearPathProps> = ({ points, ...props }) => {
 LinearPath.displayName = 'LinearPath';
 
 export const Polygon: FC<Props.PolygonProps> = ({ points, ...props }) => {
-	const { render } = useContext(RoughContext);
+	const { render, remove } = useContext(RoughContext);
+	const token = `poly-${random()}`;
 
 	useDeepCompareEffect(() => {
-		render(rc => rc.polygon(points, props));
+		render(rc => [rc.polygon(points, props), token]);
+		return () => remove(token);
 	}, [points, props]);
 
 	return null;
@@ -94,10 +108,15 @@ export const Arc: FC<Props.ArcProps> = ({
 	closed,
 	...props
 }) => {
-	const { render } = useContext(RoughContext);
+	const { render, remove } = useContext(RoughContext);
+	const token = `arc-${random()}`;
 
 	useDeepCompareEffect(() => {
-		render(rc => rc.arc(x, y, width, height, start, stop, closed, props));
+		render(rc => [
+			rc.arc(x, y, width, height, start, stop, closed, props),
+			token
+		]);
+		return () => remove(token);
 	}, [x, y, width, height, start, stop, closed, props]);
 
 	return null;
@@ -105,10 +124,12 @@ export const Arc: FC<Props.ArcProps> = ({
 Arc.displayName = 'Arc';
 
 export const Curve: FC<Props.CurveProps> = ({ points, ...props }) => {
-	const { render } = useContext(RoughContext);
+	const { render, remove } = useContext(RoughContext);
+	const token = `curve-${random()}`;
 
 	useDeepCompareEffect(() => {
-		render(rc => rc.curve(points, props));
+		render(rc => [rc.curve(points, props), token]);
+		return () => remove(token);
 	}, [points, props]);
 
 	return null;
@@ -116,10 +137,12 @@ export const Curve: FC<Props.CurveProps> = ({ points, ...props }) => {
 Curve.displayName = 'Curve';
 
 export const Path: FC<Props.PathProps> = ({ d, ...props }) => {
-	const { render } = useContext(RoughContext);
+	const { render, remove } = useContext(RoughContext);
+	const token = `path-${random()}`;
 
 	useDeepCompareEffect(() => {
-		render(rc => rc.path(d, props));
+		render(rc => [rc.path(d, props), token]);
+		return () => remove(token);
 	}, [d, props]);
 
 	return null;
