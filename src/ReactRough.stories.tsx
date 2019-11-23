@@ -34,7 +34,10 @@ stories.add('Basic Canvas Rough Element', () => {
 stories.add('Basic Svg Rough Element', () => {
 	return (
 		<>
-			<ReactRoughSvg width={number('parentWidth', 700)}>
+			<ReactRoughSvg
+				width={number('parentWidth', 700)}
+				config={{ options: { roughness: number('roughness', 0) } }}
+			>
 				<Rectangle
 					x={number('x', 15)}
 					y={number('y', 15)}
