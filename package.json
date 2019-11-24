@@ -11,13 +11,15 @@
 		"test:watch": "jest --watch",
 		"coverage": "jest --coverage",
 		"prepublish": "npm run build",
-		"build": "rollup -c rollup.config.js",
+		"build": "tsc && rollup -c rollup.config.js",
+		"prebuild": "rimraf build dist",
 		"report-coverage": "cat ./coverage/lcov.info | codecov",
 		"storybook": "start-storybook -p 6006 -c .storybook",
 		"prettier": "prettier --write '{src,__tests__}/*.tsx' '{src,__tests__}/*.ts'"
 	},
 	"files": [
 		"dist",
+		"build/*.d.ts",
 		"README.md"
 	],
 	"repository": {
@@ -38,6 +40,7 @@
 		"@storybook/addons": "^5.2.6",
 		"@storybook/react": "^5.2.6",
 		"@testing-library/react": "^9.3.2",
+		"@types/jest": "^24.0.23",
 		"@typescript-eslint/eslint-plugin": "^2.7.0",
 		"@typescript-eslint/parser": "^2.7.0",
 		"awesome-typescript-loader": "^5.2.1",
@@ -53,11 +56,13 @@
 		"prettier": "^1.19.1",
 		"react": "^16.12.0",
 		"react-dom": "^16.12.0",
+		"rimraf": "^3.0.0",
 		"rollup": "^1.27.0",
 		"rollup-plugin-babel": "^4.3.3",
 		"rollup-plugin-terser": "^5.1.2",
 		"roughjs": "^3.1.0",
 		"storybook-addon-jsx": "^7.1.13",
+		"ts-jest": "^24.2.0",
 		"typescript": "^3.7.2"
 	},
 	"peerDependencies": {
@@ -76,11 +81,7 @@
 		],
 		"transform": {
 			"^.+\\.tsx?$": "ts-jest"
-		},
-		"setupFilesAfterEnv": [
-			"./node_modules/jest-enzyme/lib/index.js",
-			"jest-canvas-mock"
-		]
+		}
 	},
 	"dependencies": {
 		"use-deep-compare-effect": "^1.3.0"
