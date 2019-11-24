@@ -44,10 +44,6 @@ export const ReactRoughComp: FC<RoughCompProps> = ({
 	const svgRef = React.useRef<SVGSVGElement>();
 	const canvasRef = React.useRef<HTMLCanvasElement>();
 
-	// if (forwardedRef && renderer) {
-	// 	throw new Error("You can't use")
-	// }
-
 	if (forwardedRef) {
 		return (
 			<RoughContext.Provider
