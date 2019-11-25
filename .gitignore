@@ -2,5 +2,6 @@ node_modules
 coverage
 dist
 build
+public
 **/.rts*
 *error.log

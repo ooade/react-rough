@@ -5,6 +5,7 @@
 		"jsx": "react" /* Specify JSX code generation: 'preserve', 'react-native', or 'react'. */,
 		"strict": true /* Enable all strict type-checking options. */,
 		"declaration": true /* Generates corresponding '.d.ts' file. */,
+		"moduleResolution": "node",
 		"esModuleInterop": true /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */
 	},
 	"exclude": ["node_modules", "__tests__", "./src/*.stories.tsx"]

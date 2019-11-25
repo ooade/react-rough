@@ -12,7 +12,7 @@
 		"test:watch": "jest --watch",
 		"coverage": "jest --coverage",
 		"prepublish": "npm run build",
-		"build": "microbundle --external react,roughjs",
+		"build": "microbundle --external react,roughjs && build-storybook -c .storybook -o public",
 		"prebuild": "rimraf build dist",
 		"report-coverage": "cat ./coverage/lcov.info | codecov",
 		"storybook": "start-storybook -p 6006 -c .storybook",

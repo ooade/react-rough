@@ -1,0 +1,12 @@
+import { FC } from 'react';
+export { Point } from 'roughjs/bin/geometry';
+import * as Props from './RoughComponentProps';
+export declare const Line: FC<Props.LineProps>;
+export declare const Rectangle: FC<Props.RectangleProps>;
+export declare const Ellipse: FC<Props.EllipseProps>;
+export declare const Circle: FC<Props.CircleProps>;
+export declare const LinearPath: FC<Props.LinearPathProps>;
+export declare const Polygon: FC<Props.PolygonProps>;
+export declare const Arc: FC<Props.ArcProps>;
+export declare const Curve: FC<Props.CurveProps>;
+export declare const Path: FC<Props.PathProps>;
