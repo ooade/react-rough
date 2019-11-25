@@ -32,9 +32,10 @@
 	"author": "Ademola Adegbuyi <ooade96@gmail.com>",
 	"license": "MIT",
 	"devDependencies": {
-		"@babel/core": "^7.7.2",
-		"@babel/preset-env": "^7.7.1",
-		"@babel/preset-react": "^7.7.0",
+		"@babel/cli": "^7.7.4",
+		"@babel/core": "^7.7.4",
+		"@babel/preset-env": "^7.7.4",
+		"@babel/preset-react": "^7.7.4",
 		"@storybook/addon-info": "^5.2.6",
 		"@storybook/addon-knobs": "^5.2.6",
 		"@storybook/addons": "^5.2.6",
@@ -44,7 +45,6 @@
 		"@typescript-eslint/eslint-plugin": "^2.7.0",
 		"@typescript-eslint/parser": "^2.7.0",
 		"awesome-typescript-loader": "^5.2.1",
-		"babel-cli": "^6.26.0",
 		"babel-loader": "^8.0.6",
 		"codecov.io": "^0.1.6",
 		"eslint": "^6.6.0",
@@ -63,6 +63,9 @@
 		"ts-jest": "^24.2.0",
 		"typescript": "^3.7.2"
 	},
+	"dependencies": {
+		"use-deep-compare-effect": "^1.3.0"
+	},
 	"peerDependencies": {
 		"react": "^16.12.0",
 		"react-dom": "^16.12.0",
@@ -75,13 +78,15 @@
 	},
 	"jest": {
 		"collectCoverageFrom": [
-			"<rootDir>/src/**.js"
+			"<rootDir>/src/**.tsx"
+		],
+		"moduleFileExtensions": [
+			"tsx",
+			"ts",
+			"js"
 		],
 		"transform": {
 			"^.+\\.tsx?$": "ts-jest"
 		}
-	},
-	"dependencies": {
-		"use-deep-compare-effect": "^1.3.0"
 	}
 }

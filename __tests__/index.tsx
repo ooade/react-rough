@@ -1,6 +1,9 @@
 import React from 'react';
+import { render } from '@testing-library/react';
+
 import ReactRough from '../src';
 
 it('should render Rough Component properly', () => {
-	expect(<ReactRough></ReactRough>).toMatchSnapshot();
+	const { container } = render(<ReactRough></ReactRough>);
+	expect(container).toMatchSnapshot();
 });
