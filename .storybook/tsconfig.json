@@ -6,7 +6,6 @@
 		"rootDir": "../src" /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */,
 		"strict": true /* Enable all strict type-checking options. */,
 		"moduleResolution": "node",
-		"declaration": true /* Generates corresponding '.d.ts' file. */,
 		"esModuleInterop": true /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */,
 		"experimentalDecorators": true,
 		"emitDecoratorMetadata": true
