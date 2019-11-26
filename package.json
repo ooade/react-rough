@@ -1,20 +1,17 @@
 {
 	"name": "react-rough",
-	"version": "2.0.0-rc.2",
+	"version": "2.0.0",
 	"description": "React Bindings for Rough.js",
 	"source": "src/index.tsx",
 	"main": "dist/index.js",
 	"module": "dist/index.js",
 	"umd": "dist/index.js",
+	"homepage": "https://react-rough.dev.adegbuyi.me",
 	"scripts": {
-		"test": "jest",
 		"lint": "eslint src/*",
-		"test:watch": "jest --watch",
-		"coverage": "jest --coverage",
 		"prepublish": "npm run build",
 		"build": "microbundle --external react,roughjs && build-storybook -c .storybook -o public",
 		"prebuild": "rimraf build dist",
-		"report-coverage": "cat ./coverage/lcov.info | codecov",
 		"storybook": "start-storybook -p 6006 -c .storybook",
 		"prettier": "prettier --write '{src,__tests__}/*.tsx' '{src,__tests__}/*.ts'"
 	},
@@ -41,26 +38,23 @@
 		"@storybook/addons": "^5.2.6",
 		"@storybook/react": "^5.2.6",
 		"@testing-library/react": "^9.3.2",
-		"@types/jest": "^24.0.23",
 		"@typescript-eslint/eslint-plugin": "^2.7.0",
 		"@typescript-eslint/parser": "^2.7.0",
 		"awesome-typescript-loader": "^5.2.1",
 		"babel-loader": "^8.0.6",
-		"codecov.io": "^0.1.6",
 		"eslint": "^6.6.0",
 		"eslint-plugin-import": "^2.18.2",
 		"eslint-plugin-react": "^7.16.0",
 		"eslint-plugin-react-hooks": "^2.3.0",
 		"ghooks": "^2.0.4",
-		"jest": "^24.9.0",
 		"microbundle": "^0.11.0",
 		"prettier": "^1.19.1",
 		"react": "^16.12.0",
+		"react-docgen-typescript-loader": "^3.6.0",
 		"react-dom": "^16.12.0",
 		"rimraf": "^3.0.0",
 		"roughjs": "^3.1.0",
 		"storybook-addon-jsx": "^7.1.13",
-		"ts-jest": "^24.2.0",
 		"typescript": "^3.7.2"
 	},
 	"dependencies": {
@@ -74,19 +68,6 @@
 	"config": {
 		"ghooks": {
 			"pre-commit": "npm run prettier"
-		}
-	},
-	"jest": {
-		"collectCoverageFrom": [
-			"<rootDir>/src/**.tsx"
-		],
-		"moduleFileExtensions": [
-			"tsx",
-			"ts",
-			"js"
-		],
-		"transform": {
-			"^.+\\.tsx?$": "ts-jest"
 		}
 	}
 }

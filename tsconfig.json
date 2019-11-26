@@ -8,5 +8,5 @@
 		"moduleResolution": "node",
 		"esModuleInterop": true /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */
 	},
-	"exclude": ["node_modules", "__tests__", "./src/*.stories.tsx"]
+	"exclude": ["node_modules", "__tests__", "dist", "./src/*.stories.tsx"]
 }

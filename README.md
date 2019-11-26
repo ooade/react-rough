@@ -2,9 +2,8 @@
   <img src="https://raw.githubusercontent.com/ooade/react-rough/6a550a44fd92b34102ff74dad0703fb3c7418dcb/logo.png" height="150" />
   <h3 align="center">React Bindings for <a href="https://github.com/pshihn/rough">Rough.js</a></h3>
   <p align="center">
+  <a href="https://app.netlify.com/sites/react-rough/deploys"><img src="https://api.netlify.com/api/v1/badges/7d704f8b-50ef-41d8-862e-aad4b811e809/deploy-status" alt="Netlify Status"></a>
   <a href="https://www.npmjs.org/package/react-rough"><img src="https://img.shields.io/npm/v/react-rough.svg?style=flat-square" alt="npm"></a>
-  <a href="https://travis-ci.org/ooade/react-rough"><img src="https://img.shields.io/travis/ooade/react-rough/beta.svg?style=flat-square" alt="travis"></a>
-  <a href="https://github.com/ooade/react-rough"><img src="https://img.shields.io/codecov/c/github/ooade/react-rough.svg?style=flat-square" alt="code coverage"></a>
   <a href="https://github.com/ooade/react-rough"><img src="https://img.shields.io/npm/dm/react-rough.svg?style=flat-square" alt="downloads/month"></a>
   <a href="https://snyk.io/test/github/ooade/react-rough"><img src="https://snyk.io/test/github/ooade/react-rough/badge.svg?style=flat-square" alt="Known Vulnerabilities" data-canonical-src="https://snyk.io/test/github/ooade/react-rough" style="max-width:100%;"></a>
   <a href="http://makeapullrequest.com"><img src="https://img.shields.io/badge/PR(s)-welcome-brightgreen.svg?style=flat-square" alt="pullrequest"></a>
@@ -19,46 +18,24 @@
 - npm add roughjs
 ```
 
-Note: The documentation is for the beta release. For the stable release check out the [master branch](https://github.com/ooade/react-rough/tree/master)
-
-### Render a Rectangle
+### Render a Rectangle on a canvas element
 
 ```js
 import ReactRough, { Rectangle } from 'react-rough';
 
 render(
-	<ReactRough width={220} height={220}>
-		<Rectangle points={[10, 10, 200, 200]} fill="red" fillWeight={3} />
+	<ReactRough>
+		<Rectangle x={15} y={15} width={90} height={80} fill="red" />
 	</ReactRough>
 );
 ```
 
-`Note: All shapes must be nested within a ReactRough Component, it could have other surrounding elements, but it's GrandParent must be a ReactRough Component`
+## Learn More
 
-When you grab a shape from ReactRough, it renders each shape to a canvas element. So how can we render different shapes on a single canvas element? We'll answer that below.
+To learn more, go through our [StoryBook](https://react-rough.dev.adegbuyi.me).
 
-### Render multiple shapes on one canvas element
-
-```js
-import ReactRough, { Rectangle, Circle } from 'react-rough';
-
-render(
-	<ReactRough width={200} height={400}>
-		<Circle points={[50, 50, 80]} fill="red" />
-		<Polygon
-			points={[[[690, 130], [790, 140], [750, 240], [690, 220]]]}
-			fill="blue"
-			stroke="green"
-		/>
-	</ReactRough>
-);
-```
-
-## Examples
-
-- [CodeSandBox](https://codesandbox.io/s/r582mor7wq)
-- [ReactRough animated logo](https://jsfiddle.net/ooade/f8cmbfwL/)
-- Add yours...
+Visit the [Website](https://react-rough.dev.adegbuyi.me)
+![Storybook Preview](./assets/storybook.png)
 
 ## License
 
