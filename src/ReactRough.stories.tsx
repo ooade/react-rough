@@ -68,6 +68,21 @@ roughStories.add('Basic Line Element', () => {
 	);
 });
 
+roughStories.add('Basic Rectangle Element with a defined seed', () => {
+	return (
+		<ReactRough>
+			<Rectangle
+				x={number('x', 15)}
+				y={number('y', 15)}
+				width={number('width', 80)}
+				fill={color('color', 'red')}
+				seed={number('seed', Math.floor(Math.random() * 2 ** 31))} // copied the seed value from rough
+				height={number('height', 80)}
+			/>
+		</ReactRough>
+	);
+});
+
 roughStories.add('Basic Ellipse Element', () => {
 	return (
 		<ReactRough>
