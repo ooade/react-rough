@@ -50,7 +50,7 @@
 		"microbundle": "^0.11.0",
 		"prettier": "^1.19.1",
 		"react": "^16.12.0",
-		"react-docgen-typescript-loader": "^3.6.0",
+		"react-docgen-typescript-loader": "^3.7.1",
 		"react-dom": "^16.12.0",
 		"rimraf": "^3.0.0",
 		"roughjs": "^4.0.1",
