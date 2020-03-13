@@ -37,7 +37,7 @@
 		"@storybook/addon-knobs": "^5.2.6",
 		"@storybook/addons": "^5.2.6",
 		"@storybook/react": "^5.2.6",
-		"@testing-library/react": "^9.3.2",
+		"@testing-library/react": "^10.0.0",
 		"@typescript-eslint/eslint-plugin": "^2.7.0",
 		"@typescript-eslint/parser": "^2.7.0",
 		"awesome-typescript-loader": "^5.2.1",
