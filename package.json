@@ -33,10 +33,10 @@
 		"@babel/core": "^7.7.4",
 		"@babel/preset-env": "^7.7.4",
 		"@babel/preset-react": "^7.7.4",
-		"@storybook/addon-info": "^5.2.6",
-		"@storybook/addon-knobs": "^5.2.6",
-		"@storybook/addons": "^5.2.6",
-		"@storybook/react": "^5.2.6",
+		"@storybook/addon-info": "^5.3.18",
+		"@storybook/addon-knobs": "^5.3.18",
+		"@storybook/addons": "^5.3.18",
+		"@storybook/react": "^5.3.18",
 		"@testing-library/react": "^9.3.2",
 		"@typescript-eslint/eslint-plugin": "^2.7.0",
 		"@typescript-eslint/parser": "^2.7.0",
@@ -49,21 +49,21 @@
 		"ghooks": "^2.0.4",
 		"microbundle": "^0.11.0",
 		"prettier": "^1.19.1",
-		"react": "^16.12.0",
+		"react": "^16.13.1",
 		"react-docgen-typescript-loader": "^3.6.0",
-		"react-dom": "^16.12.0",
+		"react-dom": "^16.13.1",
 		"rimraf": "^3.0.0",
-		"roughjs": "^4.0.1",
-		"storybook-addon-jsx": "^7.1.13",
-		"typescript": "^3.7.2"
+		"roughjs": "^4.3.1",
+		"storybook-addon-jsx": "^7.2.3",
+		"typescript": "^3.9.2"
 	},
 	"dependencies": {
-		"use-deep-compare-effect": "^1.3.0"
+		"use-deep-compare-effect": "^1.3.1"
 	},
 	"peerDependencies": {
-		"react": "^16.12.0",
-		"react-dom": "^16.12.0",
-		"roughjs": "^4.0.1"
+		"react": "^16.13.1",
+		"react-dom": "^16.13.1",
+		"roughjs": "^4.3.1"
 	},
 	"config": {
 		"ghooks": {
