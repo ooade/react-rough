@@ -13,11 +13,7 @@ interface RoughProps {
 }
 
 interface RoughCompProps extends RoughProps {
-	forwardedRef: RefObject<unknown>;
-}
-
-interface ForwardedRoughProps extends RoughProps {
-	ref?: SvgRef | CanvasRef;
+	forwardedRef?: RefObject<unknown>;
 }
 
 interface RoughContextProps {
@@ -90,11 +86,13 @@ export const ReactRoughComp: FC<RoughCompProps> = ({
 	);
 };
 
-export const ReactRough: React.ForwardRefExoticComponent<React.RefAttributes<
-	RoughProps
->> = React.forwardRef((props, ref) => {
-	return <ReactRoughComp {...props} forwardedRef={ref as RefObject<unknown>} />;
-});
+export const ReactRough: React.FC<RoughCompProps> = React.forwardRef(
+	(props, ref) => {
+		return (
+			<ReactRoughComp {...props} forwardedRef={ref as RefObject<unknown>} />
+		);
+	}
+);
 
 ReactRough.displayName = 'ReactRough';
 
