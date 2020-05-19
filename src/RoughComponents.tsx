@@ -1,5 +1,5 @@
 import useDeepCompareEffect from 'use-deep-compare-effect';
-import React, { useContext, FC, useMemo, useCallback } from 'react';
+import React, { useContext, FC, useMemo } from 'react';
 import { RoughSVG } from 'roughjs/bin/svg';
 import { Drawable } from 'roughjs/bin/core';
 import { RoughCanvas } from 'roughjs/bin/canvas';
