@@ -1,6 +1,6 @@
 {
 	"name": "react-rough",
-	"version": "2.2.0",
+	"version": "2.3.0",
 	"description": "React Bindings for Rough.js",
 	"source": "src/index.tsx",
 	"main": "dist/index.js",
