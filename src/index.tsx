@@ -90,10 +90,9 @@ export const ReactRoughComp: FC<RoughCompProps> = ({
 	);
 };
 
-export const ReactRough: React.RefForwardingComponent<
-	SVGSVGElement | HTMLCanvasElement,
-	ForwardedRoughProps
-> = React.forwardRef((props, ref) => {
+export const ReactRough: React.ForwardRefExoticComponent<React.RefAttributes<
+	RoughProps
+>> = React.forwardRef((props, ref) => {
 	return <ReactRoughComp {...props} forwardedRef={ref as RefObject<unknown>} />;
 });
 
