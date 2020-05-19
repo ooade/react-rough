@@ -35,6 +35,7 @@ export const ReactRoughComp: FC<RoughCompProps> = ({
 					config,
 					width,
 					height,
+					type: 'canvas',
 					ref: forwardedRef as SvgRef
 				}}
 			>
@@ -48,6 +49,7 @@ export const ReactRoughComp: FC<RoughCompProps> = ({
 			<RoughContext.Provider
 				value={{
 					config,
+					type: 'svg',
 					ref: svgRef as SvgRef
 				}}
 			>
@@ -64,6 +66,7 @@ export const ReactRoughComp: FC<RoughCompProps> = ({
 				config,
 				width,
 				height,
+				type: 'canvas',
 				ref: canvasRef as CanvasRef
 			}}
 		>

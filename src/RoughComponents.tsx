@@ -1,5 +1,5 @@
 import useDeepCompareEffect from 'use-deep-compare-effect';
-import React, { useContext, FC } from 'react';
+import React, { useContext, FC, useMemo, useCallback } from 'react';
 import { RoughSVG } from 'roughjs/bin/svg';
 import { Drawable } from 'roughjs/bin/core';
 import { RoughCanvas } from 'roughjs/bin/canvas';
@@ -15,10 +15,8 @@ interface RendererProps {
 }
 
 const Renderer: FC<RendererProps> = ({ render }) => {
-	const { ref, config, width, height } = useContext(RoughContext);
-
-	const getRenderer = (): string | undefined =>
-		ref && ref.current && ref.current.tagName.toLowerCase();
+	const { ref, config, width, height, type } = useContext(RoughContext);
+	const memoizedConfig = useMemo(() => config, [config]);
 
 	const clearCanvas = (): void => {
 		if (!(width && height)) {
@@ -31,12 +29,14 @@ const Renderer: FC<RendererProps> = ({ render }) => {
 
 	useDeepCompareEffect(() => {
 		const rendererElement = ref && ref.current;
-		const renderer = getRenderer();
 
 		if (!rendererElement) return;
 
-		if (renderer === 'svg') {
-			const roughSvg = new RoughSVG(rendererElement as SVGSVGElement, config);
+		if (type === 'svg') {
+			const roughSvg = new RoughSVG(
+				rendererElement as SVGSVGElement,
+				memoizedConfig
+			);
 			const node = render(roughSvg) as Node;
 			rendererElement.appendChild(node);
 
@@ -46,13 +46,13 @@ const Renderer: FC<RendererProps> = ({ render }) => {
 		} else {
 			const roughCanvas = new RoughCanvas(
 				rendererElement as HTMLCanvasElement,
-				config
+				memoizedConfig
 			);
 			render(roughCanvas);
 		}
-	}, [ref, render]);
+	}, [ref, memoizedConfig, render, type]);
 
-	if (getRenderer() === 'canvas') clearCanvas();
+	if (type === 'canvas') clearCanvas();
 	return null;
 };
 
