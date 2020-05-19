@@ -1,5 +1,6 @@
 import React, { FC, MutableRefObject, RefObject } from 'react';
 import { Config } from 'roughjs/bin/core';
+import RoughContext from './RoughContext';
 
 type SvgRef = MutableRefObject<SVGSVGElement>;
 type CanvasRef = MutableRefObject<HTMLCanvasElement>;
@@ -13,25 +14,8 @@ interface RoughProps {
 }
 
 interface RoughCompProps extends RoughProps {
-	forwardedRef: RefObject<unknown>;
+	forwardedRef?: RefObject<unknown>;
 }
-
-interface ForwardedRoughProps extends RoughProps {
-	ref?: SvgRef | CanvasRef;
-}
-
-interface RoughContextProps {
-	ref?: SvgRef | CanvasRef;
-	config?: Config;
-	width?: number;
-	height?: number;
-}
-
-export const RoughContext = React.createContext<RoughContextProps>({
-	width: 300,
-	height: 150
-});
-RoughContext.displayName = 'RoughContext';
 
 export const ReactRoughComp: FC<RoughCompProps> = ({
 	config,
@@ -51,6 +35,7 @@ export const ReactRoughComp: FC<RoughCompProps> = ({
 					config,
 					width,
 					height,
+					type: 'canvas',
 					ref: forwardedRef as SvgRef
 				}}
 			>
@@ -64,6 +49,7 @@ export const ReactRoughComp: FC<RoughCompProps> = ({
 			<RoughContext.Provider
 				value={{
 					config,
+					type: 'svg',
 					ref: svgRef as SvgRef
 				}}
 			>
@@ -80,6 +66,7 @@ export const ReactRoughComp: FC<RoughCompProps> = ({
 				config,
 				width,
 				height,
+				type: 'canvas',
 				ref: canvasRef as CanvasRef
 			}}
 		>
@@ -90,12 +77,13 @@ export const ReactRoughComp: FC<RoughCompProps> = ({
 	);
 };
 
-export const ReactRough: React.RefForwardingComponent<
-	SVGSVGElement | HTMLCanvasElement,
-	ForwardedRoughProps
-> = React.forwardRef((props, ref) => {
-	return <ReactRoughComp {...props} forwardedRef={ref as RefObject<unknown>} />;
-});
+export const ReactRough: React.FC<RoughCompProps> = React.forwardRef(
+	(props, ref) => {
+		return (
+			<ReactRoughComp {...props} forwardedRef={ref as RefObject<unknown>} />
+		);
+	}
+);
 
 ReactRough.displayName = 'ReactRough';
 
