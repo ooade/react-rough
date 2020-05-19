@@ -1,5 +1,6 @@
 import React, { FC, MutableRefObject, RefObject } from 'react';
 import { Config } from 'roughjs/bin/core';
+import RoughContext from './RoughContext';
 
 type SvgRef = MutableRefObject<SVGSVGElement>;
 type CanvasRef = MutableRefObject<HTMLCanvasElement>;
@@ -15,19 +16,6 @@ interface RoughProps {
 interface RoughCompProps extends RoughProps {
 	forwardedRef?: RefObject<unknown>;
 }
-
-interface RoughContextProps {
-	ref?: SvgRef | CanvasRef;
-	config?: Config;
-	width?: number;
-	height?: number;
-}
-
-export const RoughContext = React.createContext<RoughContextProps>({
-	width: 300,
-	height: 150
-});
-RoughContext.displayName = 'RoughContext';
 
 export const ReactRoughComp: FC<RoughCompProps> = ({
 	config,

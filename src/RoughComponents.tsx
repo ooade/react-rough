@@ -5,7 +5,7 @@ import { Drawable } from 'roughjs/bin/core';
 import { RoughCanvas } from 'roughjs/bin/canvas';
 export { Point } from 'roughjs/bin/geometry';
 import * as Props from './RoughComponentProps';
-import { RoughContext } from './';
+import RoughContext from './RoughContext';
 
 type RoughRenderer = RoughSVG | RoughCanvas;
 type RoughOutput = Node | Drawable;
