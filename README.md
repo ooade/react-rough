@@ -13,10 +13,17 @@
 
 ## Installation
 
+#### npm
+
 ```sh
-- npm add react-rough
-- npm add roughjs
+npm add react-rough roughjs
 ```
+or
+#### yarn
+```sh
+yarn add react-rough roughjs
+```
+
 
 ### Render a Rectangle on a canvas element
 
