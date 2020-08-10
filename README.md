@@ -13,9 +13,10 @@
 
 ## Installation
 
+Install via a package manager npm or yarn
+
 ```sh
-- npm add react-rough
-- npm add roughjs
+yarn add react-rough roughjs
 ```
 
 ### Render a Rectangle on a canvas element
